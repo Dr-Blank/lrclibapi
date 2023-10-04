@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "lrclibpy"
+version = "0.1.0"
+description = "python wrapper for the lrclib.net api"
+authors = ["Dr-Blank <64108942+Dr-Blank@users.noreply.github.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
