@@ -1,1 +1,69 @@
-Python Wrapper for [lrclib.net](https://lrclib.net/)
+# LRCLibAPI
+
+Python Wrapper for [lrclib.net](https://lrclib.net/) api to get synced lyrics.
+
+<p>
+  <a href="https://pypi.org/project/lrclibpy/">
+    <img src="https://img.shields.io/pypi/v/lrclibpy?color=darkblue" alt="Stable Version">
+  </a>
+  <a href="https://pypistats.org/packages/lrclibpy">
+    <img src="https://img.shields.io/pypi/dm/lrclibpy?color=teal" alt="Downloads">
+  </a>
+  <a href="https://github.com/Dr-Blank/lrclibpy/actions">
+    <img src="https://github.com/Dr-Blank/lrclibpy/actions/workflows/tests.yaml/badge.svg" alt="Test">
+  </a>
+  <a href="https://github.com/psf/black">
+    <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
+  </a>
+  <a href="https://mypy-lang.org/">
+    <img src="https://www.mypy-lang.org/static/mypy_badge.svg" alt="Checked with mypy">
+  </a>
+</p>
+
+## Installation
+
+```bash
+pip install lrclibpy
+```
+
+## Usage
+
+```python
+from lrclib import LrcLibAPI
+
+# Create an instance of the API
+api = LrcLibAPI(user_agent="my-app/0.0.1")
+
+# Get lyrics for a track
+lyrics = api.get_lyrics(
+  track_name="I Want to Live",
+  artist_name="Borislav Slavov",
+  album_name="Baldur's Gate 3 (Original Game Soundtrack)",
+  duration=233,
+)
+
+# Print the lyrics
+print(lyrics["syncedLyrics"])
+
+# Search for a lyrics
+results = api.search_lyrics(
+  track_name="I Want to Live",
+  duration=233,
+)
+
+# Print the results
+for result in results:
+  print(result["id"])
+  print(result["artistName"])
+  print(result["albumName"])
+
+# Get lyrics by ID
+lyrics = api.get_lyrics_by_id(lyrics_id=results[0]["id"])
+
+# Print the lyrics
+print(lyrics["syncedLyrics"] or lyrics["plainLyrics"])
+```
+
+## Features in Development
+
+* [ ] Add cryptography challenge solver for posting lyrics
