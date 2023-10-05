@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "pre-commit",
+      "type": "shell",
+      "command": "poetry run pre-commit",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "pytest",
+      "type": "shell",
+      "command": "poetry run pytest --cov --cov-report=html:coverage_report",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "mypy",
+      "type": "shell",
+      "command": "poetry run mypy lrclib/",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "pylint",
+      "type": "shell",
+      "command": "poetry run pylint lrclib/",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "flake8",
+      "type": "shell",
+      "command": "poetry run flake8 lrclib/",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "tests",
+      "dependsOn": ["pytest", "mypy", "pylint", "flake8"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "black",
+      "type": "shell",
+      "command": "poetry run black lrclib/",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    }
+  ]
+}

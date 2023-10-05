@@ -1,7 +1,13 @@
 {
   "workbench.colorCustomizations": {
-    "activityBar.background": "#153230",
-    "titleBar.activeBackground": "#1D4643",
-    "titleBar.activeForeground": "#F7FCFB"
-  }
+    "activityBar.background": "#1E1F7A",
+    "titleBar.activeBackground": "#2B2CAB",
+    "titleBar.activeForeground": "#FCFCFE"
+  },
+  "cSpell.words": ["chunksize", "lrclib", "rtype"],
+  "python.testing.pytestArgs": ["tests"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "autoDocstring.docstringFormat": "sphinx",
+  "python.linting.flake8Enabled": true,
 }
