@@ -1,0 +1,36 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - test_user_agent
+    method: GET
+    uri: https://lrclib.net/api/get?track_name=this+song+does+not+exist&artist_name=this+artist+does+not+exist&album_name=this+album+does+not+exist&duration=233
+  response:
+    body:
+      string: '{"statusCode":404,"error":"Not Found","message":"Failed to find specified
+        track"}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - '81'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 05 Oct 2023 07:50:01 GMT
+      Server:
+      - Caddy
+      - Caddy
+      Vary:
+      - Origin
+    status:
+      code: 404
+      message: Not Found
+version: 1

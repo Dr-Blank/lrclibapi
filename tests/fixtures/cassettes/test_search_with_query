@@ -1,0 +1,383 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - test_user_agent
+    method: GET
+    uri: https://lrclib.net/api/search?q=I+Want+to+Live
+  response:
+    body:
+      string: "[{\"id\":6553,\"name\":\"I Don't Want To Be A Memory\",\"trackName\":\"I
+        Don't Want To Be A Memory\",\"artistName\":\"Exile\",\"albumName\":\"Live
+        At Billy Bob's Texas\",\"duration\":237,\"instrumental\":false,\"plainLyrics\":\"I
+        don't want to be a memory\\nJust a shadow in your mind\\nWanna be the one
+        you always need\\nNot the one you left behind\\n\\nI don't want to be a notch
+        in your handle\\nAnother love casualty\\nSo lay back down and let's talk it
+        over\\n'Cause I don't want to be a memory\\n\\nDon't you remember how it used
+        to be\\nWhen we were so in love\\nWe spent the nights in a two-room flat\\nDrinking
+        wine from a coffee cup\\n\\nMaking love was so very easy\\nWe couldn't get
+        enough\\nI never dreamed there would come a time\\nWhen you'd think about
+        giving me up\\n\\nI don't want to be a memory\\nJust a shadow in your mind\\nI
+        wanna be the one you always need\\nNot the one you left behind\\n\\nI don't
+        want to be a notch in your handle\\nAnother love casualty\\nSo lay back down
+        and let's talk it over\\n'Cause I don't want to be a memory\\n\\nI know you've
+        had other lovers\\nBut that's all history\\nI got to know that you'll let
+        me be the last one\\nTo share your company\\n\\nI don't want to be a memory\\nJust
+        a shadow in your mind\\nI wanna be the one you always need\\nNot the one you
+        left behind\\n\\nI don't want to be a notch in your handle\\nAnother love
+        casualty\\nSo lay back down and let's talk it over\\n'Cause I don't want to
+        be\\n\\nI don't want to be a memory\\nJust a shadow in your mind\\nI wanna
+        be the one you always need\\nNot the one you left behind\\nI don't want to
+        be a memory\",\"syncedLyrics\":\"[00:06.98] I don't want to be a memory\\n[00:11.59]
+        Just a shadow in your mind\\n[00:15.25] Wanna be the one you always need\\n[00:19.85]
+        Not the one you left behind\\n[00:23.54] I don't want to be a notch in your
+        handle\\n[00:28.14] Another love casualty\\n[00:30.84] So lay back down and
+        let's talk it over\\n[00:35.58] 'Cause I don't want to be a memory\\n[00:43.74]
+        Don't you remember how it used to be\\n[00:48.31] When we were so in love\\n[00:52.07]
+        We spent the nights in a two-room flat\\n[00:56.62] Drinking wine from a coffee
+        cup\\n[01:00.22] Making love was so very easy\\n[01:04.84] We couldn't get
+        enough\\n[01:08.56] I never dreamed there would come a time\\n[01:13.17] When
+        you'd think about giving me up\\n[01:17.80] I don't want to be a memory\\n[01:23.18]
+        Just a shadow in your mind\\n[01:26.82] I wanna be the one you always need\\n[01:31.42]
+        Not the one you left behind\\n[01:36.08] I don't want to be a notch in your
+        handle\\n[01:39.78] Another love casualty\\n[01:43.40] So lay back down and
+        let's talk it over\\n[01:47.10] 'Cause I don't want to be a memory\\n[01:57.26]
+        I know you've had other lovers\\n[02:18.33] But that's all history\\n[02:21.97]
+        I got to know that you'll let me be the last one\\n[02:27.42] To share your
+        company\\n[02:32.05] I don't want to be a memory\\n[02:36.66] Just a shadow
+        in your mind\\n[02:40.38] I wanna be the one you always need\\n[02:44.87]
+        Not the one you left behind\\n[02:48.56] I don't want to be a notch in your
+        handle\\n[02:53.27] Another love casualty\\n[02:56.86] So lay back down and
+        let's talk it over\\n[03:01.42] 'Cause I don't want to be\\n[03:04.11] I don't
+        want to be a memory\\n[03:07.85] Just a shadow in your mind\\n[03:11.54] I
+        wanna be the one you always need\\n[03:15.28] Not the one you left behind\\n[03:19.85]
+        I don't want to be a memory\\n[03:25.69] \"},{\"id\":6883,\"name\":\"I Wouldn't
+        Want To Live If You Didn't Love Me\",\"trackName\":\"I Wouldn't Want To Live
+        If You Didn't Love Me\",\"artistName\":\"Don Williams\",\"albumName\":\"Volume
+        Three\",\"duration\":183,\"instrumental\":false,\"plainLyrics\":\"Sometimes
+        you may think\\nI take you for granted\\nAnd granted, sometimes maybe I do\\n'Cause,
+        I've grown so used to you\\nLyin' next to me\\nThat I wouldn't want to live\\nIf
+        you didn't love me\\n\\nNo, I wouldn't want to get up\\nIn the mornin' if
+        you weren't there\\nTo kiss me and start my day, off right\\nAnd to be waiting,
+        when I get home\\nWith lovin' just for me\\nNo, I wouldn't want to live\\nIf
+        you didn't love me\\n\\nIt's love that makes the world go 'round\\nAnd my
+        love for you\\nJust grows with leaps and bounds\\n'Cause, you know just what
+        to do\\nWhen the world has turned all blue\\nAnd I wouldn't want to live\\nIf
+        you didn't love me\\n\\nNo, I wouldn't want to get up\\nIn the mornin' if
+        you weren't there\\nTo kiss me and start my day, off right\\nAnd to be waiting,
+        when I get home\\nWith lovin' just for me\\nNo, I wouldn't want to live\\nIf
+        you didn't love me\",\"syncedLyrics\":\"[00:01.08] Sometimes you may think\\n[00:11.02]
+        I take you for granted\\n[00:16.05] And granted, sometimes maybe I do\\n[00:22.06]
+        'Cause, I've grown so used to you\\n[00:27.01] Lyin' next to me\\n[00:31.05]
+        That I wouldn't want to live\\n[00:36.05] If you didn't love me\\n[00:40.03]
+        No, I wouldn't want to get up\\n[00:44.08] In the mornin' if you weren't there\\n[00:48.04]
+        To kiss me and start my day, off right\\n[00:55.09] And to be waiting, when
+        I get home\\n[01:01.02] With lovin' just for me\\n[01:04.04] No, I wouldn't
+        want to live\\n[01:08.08] If you didn't love me\\n[01:30.05] It's love that
+        makes the world go 'round\\n[01:36.03] And my love for you\\n[01:40.03] Just
+        grows with leaps and bounds\\n[01:44.08] 'Cause, you know just what to do\\n[01:48.05]
+        When the world has turned all blue\\n[01:53.05] And I wouldn't want to live\\n[01:56.07]
+        If you didn't love me\\n[02:00.02] No, I wouldn't want to get up\\n[02:04.01]
+        In the mornin' if you weren't there\\n[02:08.01] To kiss me and start my day,
+        off right\\n[02:16.04] And to be waiting, when I get home\\n[02:21.06] With
+        lovin' just for me\\n[02:25.02] No, I wouldn't want to live\\n[02:28.02] If
+        you didn't love me\\n[02:53.03] \"},{\"id\":6884,\"name\":\"I Wouldn't Want
+        To Live If You Didn't Love Me\",\"trackName\":\"I Wouldn't Want To Live If
+        You Didn't Love Me\",\"artistName\":\"Don Williams\",\"albumName\":\"The Definitive
+        Collection\",\"duration\":183,\"instrumental\":false,\"plainLyrics\":\"Sometimes
+        you may think\\nI take you for granted\\nAnd granted, sometimes maybe I do\\n'Cause,
+        I've grown so used to you\\nLyin' next to me\\nThat I wouldn't want to live\\nIf
+        you didn't love me\\n\\nNo, I wouldn't want to get up\\nIn the mornin' if
+        you weren't there\\nTo kiss me and start my day, off right\\nAnd to be waiting,
+        when I get home\\nWith lovin' just for me\\nNo, I wouldn't want to live\\nIf
+        you didn't love me\\n\\nIt's love that makes the world go 'round\\nAnd my
+        love for you\\nJust grows with leaps and bounds\\n'Cause, you know just what
+        to do\\nWhen the world has turned all blue\\nAnd I wouldn't want to live\\nIf
+        you didn't love me\\n\\nNo, I wouldn't want to get up\\nIn the mornin' if
+        you weren't there\\nTo kiss me and start my day, off right\\nAnd to be waiting,
+        when I get home\\nWith lovin' just for me\\nNo, I wouldn't want to live\\nIf
+        you didn't love me\",\"syncedLyrics\":\"[00:01.08] Sometimes you may think\\n[00:11.02]
+        I take you for granted\\n[00:16.05] And granted, sometimes maybe I do\\n[00:22.06]
+        'Cause, I've grown so used to you\\n[00:27.01] Lyin' next to me\\n[00:31.05]
+        That I wouldn't want to live\\n[00:36.05] If you didn't love me\\n[00:40.03]
+        No, I wouldn't want to get up\\n[00:44.08] In the mornin' if you weren't there\\n[00:48.04]
+        To kiss me and start my day, off right\\n[00:55.09] And to be waiting, when
+        I get home\\n[01:01.02] With lovin' just for me\\n[01:04.04] No, I wouldn't
+        want to live\\n[01:08.08] If you didn't love me\\n[01:30.05] It's love that
+        makes the world go 'round\\n[01:36.03] And my love for you\\n[01:40.03] Just
+        grows with leaps and bounds\\n[01:44.08] 'Cause, you know just what to do\\n[01:48.05]
+        When the world has turned all blue\\n[01:53.05] And I wouldn't want to live\\n[01:56.07]
+        If you didn't love me\\n[02:00.02] No, I wouldn't want to get up\\n[02:04.01]
+        In the mornin' if you weren't there\\n[02:08.01] To kiss me and start my day,
+        off right\\n[02:16.04] And to be waiting, when I get home\\n[02:21.06] With
+        lovin' just for me\\n[02:25.02] No, I wouldn't want to live\\n[02:28.02] If
+        you didn't love me\\n[02:53.03] \"},{\"id\":118603,\"name\":\"I Want To Be
+        Ready\",\"trackName\":\"I Want To Be Ready\",\"artistName\":\"Ben Harper\",\"albumName\":\"The
+        Will To Live\",\"duration\":243,\"instrumental\":false,\"plainLyrics\":\"How
+        I am strong\\nIs to know what makes me weak\\nHow I am found\\nIs to know
+        just whom I seek\\nThe gift of a blessing\\nThe burden of a sin\\nOh, turn,
+        turn to Him\\n\\nI wanna be ready\\nI wanna be ready\\nI wanna be ready\\nReady
+        to put on my long, white robe\\n\\nNailed across\\nFrom hand to hand\\nFor
+        the sin\\nOf every woman and man\\nAnd all upon His earth\\nIs all within
+        His plan\\nAnd I know\\nThis shall be my journey home\\n\\nI wanna be ready\\nI
+        wanna be ready\\nI wanna be ready\\nReady to put on my long, white robe\\n\\nReady\\nI
+        wanna be ready\\nI wanna be ready\\nReady to put on my long, white robe\\n\\nCovet
+        no silver\\nOh, covet no gold\\nReach your empty\\nHands for Him to hold\\nUp
+        in His kingdom\\nGlory shall be proclaimed\\nAh, sing the song\\nAnd praise
+        His name\\n\\nI wanna be ready\\nI wanna be ready\\nI wanna be ready\\nReady
+        to put on my long, white robe\\n\\nReady\\nI want to be ready\\nI wanna be
+        ready\\nReady to put on my long, white robe\\n\\nReady\\nI wanna be ready\\nI
+        wanna be ready\\nReady to put on my long, white robe\",\"syncedLyrics\":\"[00:07.76]
+        How I am strong\\n[00:12.47] Is to know what makes me weak\\n[00:16.67] How
+        I am found\\n[00:21.33] Is to know just whom I seek\\n[00:26.60] The gift
+        of a blessing\\n[00:31.03] The burden of a sin\\n[00:34.90] Oh, turn, turn
+        to Him\\n[00:42.92] I wanna be ready\\n[00:47.33] I wanna be ready\\n[00:51.94]
+        I wanna be ready\\n[00:57.64] Ready to put on my long, white robe\\n[01:05.61]
+        Nailed across\\n[01:10.46] From hand to hand\\n[01:14.59] For the sin\\n[01:18.46]
+        Of every woman and man\\n[01:24.49] And all upon His earth\\n[01:28.37] Is
+        all within His plan\\n[01:32.75] And I know\\n[01:34.88] This shall be my
+        journey home\\n[01:41.34] I wanna be ready\\n[01:45.62] I wanna be ready\\n[01:50.02]
+        I wanna be ready\\n[01:56.28] Ready to put on my long, white robe\\n[02:00.67]
+        Ready\\n[02:03.74] I wanna be ready\\n[02:08.36] I wanna be ready\\n[02:14.25]
+        Ready to put on my long, white robe\\n[02:18.70] \\n[02:26.74] Covet no silver\\n[02:31.60]
+        Oh, covet no gold\\n[02:35.66] Reach your empty\\n[02:40.61] Hands for Him
+        to hold\\n[02:45.67] Up in His kingdom\\n[02:49.43] Glory shall be proclaimed\\n[02:54.18]
+        Ah, sing the song\\n[02:57.71] And praise His name\\n[03:02.74] I wanna be
+        ready\\n[03:06.82] I wanna be ready\\n[03:11.51] I wanna be ready\\n[03:17.36]
+        Ready to put on my long, white robe\\n[03:21.86] Ready\\n[03:24.85] I want
+        to be ready\\n[03:29.51] I wanna be ready\\n[03:35.57] Ready to put on my
+        long, white robe\\n[03:39.82] Ready\\n[03:42.89] I wanna be ready\\n[03:47.63]
+        I wanna be ready\\n[03:53.62] Ready to put on my long, white robe\\n[03:59.27]
+        \"},{\"id\":118604,\"name\":\"I Want to Be Ready\",\"trackName\":\"I Want
+        to Be Ready\",\"artistName\":\"Ben Harper\",\"albumName\":\"The Will to Live\",\"duration\":243,\"instrumental\":false,\"plainLyrics\":\"How
+        I am strong\\nIs to know what makes me weak\\nHow I am found\\nIs to know
+        just whom I seek\\nThe gift of a blessing\\nThe burden of a sin\\nOh, turn,
+        turn to Him\\n\\nI wanna be ready\\nI wanna be ready\\nI wanna be ready\\nReady
+        to put on my long, white robe\\n\\nNailed across\\nFrom hand to hand\\nFor
+        the sin\\nOf every woman and man\\nAnd all upon His earth\\nIs all within
+        His plan\\nAnd I know\\nThis shall be my journey home\\n\\nI wanna be ready\\nI
+        wanna be ready\\nI wanna be ready\\nReady to put on my long, white robe\\n\\nReady\\nI
+        wanna be ready\\nI wanna be ready\\nReady to put on my long, white robe\\n\\nCovet
+        no silver\\nOh, covet no gold\\nReach your empty\\nHands for Him to hold\\nUp
+        in His kingdom\\nGlory shall be proclaimed\\nAh, sing the song\\nAnd praise
+        His name\\n\\nI wanna be ready\\nI wanna be ready\\nI wanna be ready\\nReady
+        to put on my long, white robe\\n\\nReady\\nI want to be ready\\nI wanna be
+        ready\\nReady to put on my long, white robe\\n\\nReady\\nI wanna be ready\\nI
+        wanna be ready\\nReady to put on my long, white robe\",\"syncedLyrics\":\"[00:07.76]
+        How I am strong\\n[00:12.47] Is to know what makes me weak\\n[00:16.67] How
+        I am found\\n[00:21.33] Is to know just whom I seek\\n[00:26.60] The gift
+        of a blessing\\n[00:31.03] The burden of a sin\\n[00:34.90] Oh, turn, turn
+        to Him\\n[00:42.92] I wanna be ready\\n[00:47.33] I wanna be ready\\n[00:51.94]
+        I wanna be ready\\n[00:57.64] Ready to put on my long, white robe\\n[01:05.61]
+        Nailed across\\n[01:10.46] From hand to hand\\n[01:14.59] For the sin\\n[01:18.46]
+        Of every woman and man\\n[01:24.49] And all upon His earth\\n[01:28.37] Is
+        all within His plan\\n[01:32.75] And I know\\n[01:34.88] This shall be my
+        journey home\\n[01:41.34] I wanna be ready\\n[01:45.62] I wanna be ready\\n[01:50.02]
+        I wanna be ready\\n[01:56.28] Ready to put on my long, white robe\\n[02:00.67]
+        Ready\\n[02:03.74] I wanna be ready\\n[02:08.36] I wanna be ready\\n[02:14.25]
+        Ready to put on my long, white robe\\n[02:18.70] \\n[02:26.74] Covet no silver\\n[02:31.60]
+        Oh, covet no gold\\n[02:35.66] Reach your empty\\n[02:40.61] Hands for Him
+        to hold\\n[02:45.67] Up in His kingdom\\n[02:49.43] Glory shall be proclaimed\\n[02:54.18]
+        Ah, sing the song\\n[02:57.71] And praise His name\\n[03:02.74] I wanna be
+        ready\\n[03:06.82] I wanna be ready\\n[03:11.51] I wanna be ready\\n[03:17.36]
+        Ready to put on my long, white robe\\n[03:21.86] Ready\\n[03:24.85] I want
+        to be ready\\n[03:29.51] I wanna be ready\\n[03:35.57] Ready to put on my
+        long, white robe\\n[03:39.82] Ready\\n[03:42.89] I wanna be ready\\n[03:47.63]
+        I wanna be ready\\n[03:53.62] Ready to put on my long, white robe\\n[03:59.27]
+        \"},{\"id\":124401,\"name\":\"All I Want To Do Is Rock - Live At Glastonbury
+        Festival / 1999\",\"trackName\":\"All I Want To Do Is Rock - Live At Glastonbury
+        Festival / 1999\",\"artistName\":\"Travis\",\"albumName\":\"Live At Glastonbury
+        \u201899\",\"duration\":263,\"instrumental\":false,\"plainLyrics\":\"Hey\\nI
+        would really like to talk with you\\nGirl\\nDo you have the time to stop?\\nSay\\nAll
+        I wanna do is rock\\nIf this was any other day\\nI'd turn and walk the other
+        way\\nBut today\\nI'll stay\\nNot walk away\\n\\nHey\\nI'm a foot without
+        a sock without you\\nLove\\nYou seem to work around the clock\\nSay\\nAll
+        I wanna do is rock\\nIf this was any other day\\nI'd turn and walk the other
+        way\\nBut today\\nI'll stay\\nNot walk\\n\\nJust rock\\n\\nHey!\\nLove!\\nSay\\nAll
+        I wanna do is rock\\nIf this was any other day\\nI'd turn and walk the other
+        way\\nBut today\\nI'll stay\\nOk\",\"syncedLyrics\":null},{\"id\":124402,\"name\":\"All
+        I Want To Do Is Rock (Live At Glastonbury Festival \\u0000 1999)\",\"trackName\":\"All
+        I Want To Do Is Rock (Live At Glastonbury Festival \\u0000 1999)\",\"artistName\":\"Travis\",\"albumName\":\"Live
+        At Glastonbury \u201899\",\"duration\":263,\"instrumental\":false,\"plainLyrics\":\"Hey\\nI
+        would really like to talk with you\\nGirl\\nDo you have the time to stop?\\nSay\\nAll
+        I wanna do is rock\\nIf this was any other day\\nI'd turn and walk the other
+        way\\nBut today\\nI'll stay\\nNot walk away\\n\\nHey\\nI'm a foot without
+        a sock without you\\nLove\\nYou seem to work around the clock\\nSay\\nAll
+        I wanna do is rock\\nIf this was any other day\\nI'd turn and walk the other
+        way\\nBut today\\nI'll stay\\nNot walk\\n\\nJust rock\\n\\nHey!\\nLove!\\nSay\\nAll
+        I wanna do is rock\\nIf this was any other day\\nI'd turn and walk the other
+        way\\nBut today\\nI'll stay\\nOk\",\"syncedLyrics\":null},{\"id\":124404,\"name\":\"All
+        I Want to Do Is Rock (feat. Noel Gallagher) [Live]\",\"trackName\":\"All I
+        Want to Do Is Rock (feat. Noel Gallagher) [Live]\",\"artistName\":\"Travis
+        feat. Noel Gallagher\",\"albumName\":\"More Than Us\",\"duration\":290,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":124405,\"name\":\"All
+        I Want To Do Is Rock (Live)\",\"trackName\":\"All I Want To Do Is Rock (Live)\",\"artistName\":\"Travis\",\"albumName\":\"More
+        Than Us EP\",\"duration\":290,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":140307,\"name\":\"I
+        Don't Want To Change The World - Live\",\"trackName\":\"I Don't Want To Change
+        The World - Live\",\"artistName\":\"Ozzy Osbourne\",\"albumName\":\"LIVE &
+        LOUD\",\"duration\":303,\"instrumental\":false,\"plainLyrics\":\"Standing
+        at the crossroads,\\nWorld spinning round and round\\nKnow which way I'm going,\\nYou
+        can't bring me down\\nDon't you try and teach me no original sin\\nI don't
+        need your pity for the shape I'm in\\n\\nI don't wanna change the world\\nI
+        don't want the world to change me\\nI don't want to change the world\\nI don't
+        want to world to change me\\n\\nTell me I'm a sinner I got news for you\\nI
+        spoke to God this morning and he don't like you\\nFor telling all the people
+        the original sin\\nHe says he knows you better than you'll ever know him\\n\\nI
+        don't wanna change the world\\nI don't want the world to change me\\nI don't
+        want to change the world\\nI don't want to world to change me\\n\\nYou know
+        it ain't easy\\nYou know it ain't fair\\nSo don't try and please me\\nBecause
+        I really don't care\\n\\nDon't tell me stories\\n'Cause yesterday's glories\\nHave
+        gone away, so far away\\nI've heard it said there's light up ahead\\nLord
+        I hope and pray\\nI'm here to stay\\n\\nTell me I'm a sinner I got news for
+        you\\nI spoke to God this morning and he don't like you\\nDon't you try and
+        teach me no original sin\\nI don't need your pity for the shape I'm in\\n\\nI
+        don't wanna change the world\\nI don't want the world to change me\\nI don't
+        want to change the world\\nI don't want to world to change me\\nI don't wanna
+        change the world\\nI don't want the world to change me\\nI don't want to change
+        the world\\nI don't want to world to change me\",\"syncedLyrics\":\"[00:18.58]
+        Standing at the crossroads,\\n[00:20.22] World spinning round and round\\n[00:22.35]
+        Know which way I'm going,\\n[00:23.76] You can't bring me down\\n[00:27.62]
+        \\n[00:33.42] Don't you try and teach me no original sin\\n[00:37.15] I don't
+        need your pity for the shape I'm in\\n[00:42.93] \\n[00:48.35] I don't wanna
+        change the world\\n[00:51.93] I don't want the world to change me\\n[00:55.98]
+        I don't want to change the world\\n[00:59.44] I don't want to world to change
+        me\\n[01:03.81] \\n[01:10.59] Tell me I'm a sinner I got news for you\\n[01:14.03]
+        I spoke to God this morning and he don't like you\\n[01:17.74] For telling
+        all the people the original sin\\n[01:21.59] He says he knows you better than
+        you'll ever know him\\n[01:25.55] I don't wanna change the world\\n[01:29.03]
+        I don't want the world to change me\\n[01:33.03] I don't want to change the
+        world\\n[01:36.58] I don't want to world to change me\\n[01:42.05] You know
+        it ain't easy\\n[01:44.25] You know it ain't fair\\n[01:49.47] So don't try
+        and please me\\n[01:52.82] Because I really don't care\\n[02:14.01] Don't
+        tell me stories\\n[02:27.51] 'Cause yesterday's glories\\n[02:31.34] Have
+        gone away, so far away\\n[02:39.26] I've heard it said there's light up ahead\\n[02:45.52]
+        Lord I hope and pray\\n[02:50.22] I'm here to stay\\n[02:58.28] \\n[03:01.23]
+        Tell me I'm a sinner I got news for you\\n[03:04.81] I spoke to God this morning
+        and he don't like you\\n[03:08.67] Don't you try and teach me no original
+        sin\\n[03:12.22] I don't need your pity for the shape I'm in\\n[03:17.23]
+        I don't wanna change the world\\n[03:20.13] I don't want the world to change
+        me\\n[03:23.58] I don't want to change the world\\n[03:27.15] I don't want
+        to world to change me\\n[03:30.99] I don't wanna change the world\\n[03:34.54]
+        I don't want the world to change me\\n[03:38.39] I don't want to change the
+        world\\n[03:41.97] I don't want to world to change me\\n[03:53.28] \"},{\"id\":140308,\"name\":\"I
+        Don't Want to Change the World (live)\",\"trackName\":\"I Don't Want to Change
+        the World (live)\",\"artistName\":\"Ozzy Osbourne\",\"albumName\":\"The Essential
+        Ozzy Osbourne\",\"duration\":303,\"instrumental\":false,\"plainLyrics\":\"Standing
+        at the crossroads,\\nWorld spinning round and round\\nKnow which way I'm going,\\nYou
+        can't bring me down\\nDon't you try and teach me no original sin\\nI don't
+        need your pity for the shape I'm in\\n\\nI don't wanna change the world\\nI
+        don't want the world to change me\\nI don't want to change the world\\nI don't
+        want to world to change me\\n\\nTell me I'm a sinner I got news for you\\nI
+        spoke to God this morning and he don't like you\\nFor telling all the people
+        the original sin\\nHe says he knows you better than you'll ever know him\\n\\nI
+        don't wanna change the world\\nI don't want the world to change me\\nI don't
+        want to change the world\\nI don't want to world to change me\\n\\nYou know
+        it ain't easy\\nYou know it ain't fair\\nSo don't try and please me\\nBecause
+        I really don't care\\n\\nDon't tell me stories\\n'Cause yesterday's glories\\nHave
+        gone away, so far away\\nI've heard it said there's light up ahead\\nLord
+        I hope and pray\\nI'm here to stay\\n\\nTell me I'm a sinner I got news for
+        you\\nI spoke to God this morning and he don't like you\\nDon't you try and
+        teach me no original sin\\nI don't need your pity for the shape I'm in\\n\\nI
+        don't wanna change the world\\nI don't want the world to change me\\nI don't
+        want to change the world\\nI don't want to world to change me\\nI don't wanna
+        change the world\\nI don't want the world to change me\\nI don't want to change
+        the world\\nI don't want to world to change me\",\"syncedLyrics\":\"[00:18.58]
+        Standing at the crossroads,\\n[00:20.22] World spinning round and round\\n[00:22.35]
+        Know which way I'm going,\\n[00:23.76] You can't bring me down\\n[00:27.62]
+        \\n[00:33.42] Don't you try and teach me no original sin\\n[00:37.15] I don't
+        need your pity for the shape I'm in\\n[00:42.93] \\n[00:48.35] I don't wanna
+        change the world\\n[00:51.93] I don't want the world to change me\\n[00:55.98]
+        I don't want to change the world\\n[00:59.44] I don't want to world to change
+        me\\n[01:03.81] \\n[01:10.59] Tell me I'm a sinner I got news for you\\n[01:14.03]
+        I spoke to God this morning and he don't like you\\n[01:17.74] For telling
+        all the people the original sin\\n[01:21.59] He says he knows you better than
+        you'll ever know him\\n[01:25.55] I don't wanna change the world\\n[01:29.03]
+        I don't want the world to change me\\n[01:33.03] I don't want to change the
+        world\\n[01:36.58] I don't want to world to change me\\n[01:42.05] You know
+        it ain't easy\\n[01:44.25] You know it ain't fair\\n[01:49.47] So don't try
+        and please me\\n[01:52.82] Because I really don't care\\n[02:14.01] Don't
+        tell me stories\\n[02:27.51] 'Cause yesterday's glories\\n[02:31.34] Have
+        gone away, so far away\\n[02:39.26] I've heard it said there's light up ahead\\n[02:45.52]
+        Lord I hope and pray\\n[02:50.22] I'm here to stay\\n[02:58.28] \\n[03:01.23]
+        Tell me I'm a sinner I got news for you\\n[03:04.81] I spoke to God this morning
+        and he don't like you\\n[03:08.67] Don't you try and teach me no original
+        sin\\n[03:12.22] I don't need your pity for the shape I'm in\\n[03:17.23]
+        I don't wanna change the world\\n[03:20.13] I don't want the world to change
+        me\\n[03:23.58] I don't want to change the world\\n[03:27.15] I don't want
+        to world to change me\\n[03:30.99] I don't wanna change the world\\n[03:34.54]
+        I don't want the world to change me\\n[03:38.39] I don't want to change the
+        world\\n[03:41.97] I don't want to world to change me\\n[03:53.28] \"},{\"id\":157917,\"name\":\"ground\u2014i
+        want to live.\",\"trackName\":\"ground\u2014i want to live.\",\"artistName\":\"Alanis
+        Morissette\",\"albumName\":\"the storm before the calm\",\"duration\":703,\"instrumental\":true,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":217311,\"name\":\"The
+        Ones I Want to Live\",\"trackName\":\"The Ones I Want to Live\",\"artistName\":\"ALL
+        SMILES\",\"albumName\":\"Oh for the Getting and Not Letting Go\",\"duration\":280,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":217312,\"name\":\"The
+        Ones I Want To Live\",\"trackName\":\"The Ones I Want To Live\",\"artistName\":\"All
+        Smiles\",\"albumName\":\"Oh For the Getting and Not Letting Go\",\"duration\":280,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":333989,\"name\":\"I
+        Want To Talk About You (Live)\",\"trackName\":\"I Want To Talk About You (Live)\",\"artistName\":\"John
+        Coltrane Quartet\",\"albumName\":\"John Coltrane Quartet - The Stockholm Concerts
+        Vol 2 - EP (Live)\",\"duration\":382,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":333991,\"name\":\"I
+        Want to Talk About You (Live)\",\"trackName\":\"I Want to Talk About You (Live)\",\"artistName\":\"John
+        Coltrane Quartet\",\"albumName\":\"John Coltrane Quartet's Stockholm Concerts,
+        Vol. 2 (Live)\",\"duration\":382,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":353244,\"name\":\"I
+        Don't Want to Live on the Moon\",\"trackName\":\"I Don't Want to Live on the
+        Moon\",\"artistName\":\"Jazz At Lincoln Center Orchestra feat. Wynton Marsalis,
+        Ernie, Abby Cadabby & Big Bird\",\"albumName\":\"A Swingin' Sesame Street
+        Celebration\",\"duration\":241,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":353246,\"name\":\"I
+        Don\u2019t Want to Live on the Moon\",\"trackName\":\"I Don\u2019t Want to
+        Live on the Moon\",\"artistName\":\"Jazz at Lincoln Center Orchestra, Wynton
+        Marsalis, Ernie, Abby Cadabby & Big Bird\",\"albumName\":\"A Swingin\u2019
+        Sesame Street Celebration\",\"duration\":241,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":354195,\"name\":\"I
+        Want To Hold Your Hand - Live / Bonus Track\",\"trackName\":\"I Want To Hold
+        Your Hand - Live / Bonus Track\",\"artistName\":\"The Beatles\",\"albumName\":\"Live
+        At The Hollywood Bowl\",\"duration\":149,\"instrumental\":false,\"plainLyrics\":\"Oh,
+        yeah, I tell you something\\nI think you'll understand\\nWhen I tell you something\\nI
+        wanna hold your hand\\n\\nI wanna hold your hand\\nI wanna hold your hand\\n\\nOh,
+        please say to me\\nYou'll let me be your man\\nAnd, please, say to me\\nYou'll
+        let me hold your hand\\n\\nYou'll let me hold your hand\\nI wanna hold your
+        hand\\n\\nAnd when I touch you\\nI feel happy inside\\nIt's such a feeling
+        that my love\\nI can't hide, I can't hide\\nI can't hide\\n\\nYeah, you got
+        that something\\nI think you'll understand\\nWhen I feel that something\\nI
+        wanna hold your hand\\n\\nI wanna hold your hand\\nI wanna hold your hand\\n\\nAnd
+        when I touch you\\nI feel happy inside\\nIt's such a feeling that my love\\nI
+        can't hide, I can't hide\\nI can't hide\\n\\nYeah, you got that something\\nI
+        think you'll understand\\nWhen I feel that something\\nI wanna hold your hand\\n\\nI
+        wanna hold your hand\\nI wanna hold your hand\\nI wanna hold your hand\\n\\nThank
+        you\\nThank you very much, everybody\\nIt's wonderful, thank you\",\"syncedLyrics\":null},{\"id\":354199,\"name\":\"I
+        Want to Live\",\"trackName\":\"I Want to Live\",\"artistName\":\"Rhett Miller\",\"albumName\":\"The
+        Instigator\",\"duration\":221,\"instrumental\":false,\"plainLyrics\":\"The
+        man you want is the man I am\\nThe one you used to have still standing by
+        your side\\nThe love I need is the love you give\\nCould you give it to me
+        now\\nI want to live I want to live\\nI want to see tomorrow yeah\\nSo I can
+        see you tomorrow yeah yeah yeah yeah\\nThe man upstairs must have a plan\\nThe
+        one you used to have has disappeared from view\\nBut here comes me looking
+        for a kiss\\nCould you give it to me now\\nI want to live I want to live\\nI
+        want to see tomorrow yeah\\nSo I can see you tomorrow yeah yeah yeah yeah\\nThe
+        time you lose working for the man\\nThe time you used to have is never coming
+        back\\nBut the love you make well that's all there is\\nSo could you give
+        it to me now\\nI want to live I want to live\\nI want to see tomorrow yeah\\nSo
+        I can see you tomorrow yeah yeah yeah\\nI want to live I want to live\\nI
+        want to see tomorrow yeah\\nSo I can see you tomorrow yeah yeah yeah yeah\",\"syncedLyrics\":null}]"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - '27112'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 05 Oct 2023 07:48:16 GMT
+      Server:
+      - Caddy
+      - Caddy
+      Vary:
+      - Origin
+    status:
+      code: 200
+      message: OK
+version: 1

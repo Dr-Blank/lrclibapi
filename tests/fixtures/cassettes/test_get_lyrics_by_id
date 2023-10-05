@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - test_user_agent
+    method: GET
+    uri: https://lrclib.net/api/get/3396226
+  response:
+    body:
+      string: "{\"id\":3396226,\"name\":\"I Want to Live\",\"trackName\":\"I Want
+        to Live\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur's Gate
+        3 (Original Game Soundtrack)\",\"duration\":233,\"instrumental\":false,\"lang\":\"en\",\"isrc\":\"BGA472329253\",\"spotifyId\":\"5Y94QNZmNoHid18Y7c5Al9\",\"releaseDate\":\"2023-08-10T00:00:00Z\",\"plainLyrics\":\"I
+        feel your breath upon my neck\\nA soft caress as cold as death\\nI didn't
+        know you well back then\\nI blame it all on luck and vain\\nYour blood like
+        wine, I wanted in\\nOh darling, get me drunk and make me feel\\n\\nIt's not
+        my fault\\nI'm not to blame\\nThese ain't my sins\\nI broke my chains\\nThere's
+        more to do\\nAnd I still want to live\\n\\nI feel your breath, upon my neck\\nA
+        soft caress, as cold as death\\nI feel your heart-beat in my soul\\nOur futures
+        bound, our bodies know\\nYour blood like wine, I wanted in\\nOh darling get
+        me drunk, invite me in\\n\\nIt's not my fault\\nI'm not to blame\\nThes\u0435
+        ain't my sins\\nI broke my chains\\nThere's mor\u0435 to do\\nIf I can only
+        live\\n\\nI can't go yet\\nDon't let me die\\nI'll never stop\\nUntil I'm
+        done\\nBut just tonight\\nMaybe I'll rest in peace\\n\\nI feel your breath
+        upon my neck\\nA soft caress as cold as death (Cold as death)\\nI hear your
+        heart-beat in my soul\\nOur endings bound, our bodies know\\n\\nI can't go
+        yet\\nDon't let me die\\nI want to live\\nMy only one\\nThere's more to do,
+        if we can only live\\nThe clock won't stop and this is what we get\\n\",\"syncedLyrics\":\"[00:17.12]
+        I feel your breath upon my neck\\n[00:20.41] A soft caress as cold as death\\n[00:29.60]
+        I didn't know you well back then\\n[00:32.82] I blame it all on luck and vain\\n[00:41.37]
+        Your blood like wine, I wanted in\\n[00:44.62] Oh darling, get me drunk and
+        make me feel\\n[00:49.72] \\n[00:51.12] It's not my fault\\n[00:53.94] I'm
+        not to blame\\n[00:57.02] These ain't my sins\\n[01:00.15] I broke my chains\\n[01:03.10]
+        There's more to do\\n[01:04.54] And I still want to live\\n[01:08.42] \\n[01:13.22]
+        I feel your breath, upon my neck\\n[01:16.49] A soft caress, as cold as death\\n[01:25.67]
+        I feel your heart-beat in my soul\\n[01:29.07] Our futures bound, our bodies
+        know\\n[01:37.55] Your blood like wine, I wanted in\\n[01:40.70] Oh darling
+        get me drunk, invite me in\\n[01:45.82] \\n[01:47.14] It's not my fault\\n[01:50.17]
+        I'm not to blame\\n[01:53.20] Thes\u0435 ain't my sins\\n[01:56.28] I broke
+        my chains\\n[01:59.27] There's mor\u0435 to do\\n[02:00.69] If I can only
+        live\\n[02:04.47] \\n[02:08.77] I can't go yet\\n[02:11.75] Don't let me die\\n[02:14.95]
+        I'll never stop\\n[02:18.15] Until I'm done\\n[02:21.24] But just tonight\\n[02:23.79]
+        Maybe I'll rest in peace\\n[02:28.94] \\n[02:37.39] I feel your breath upon
+        my neck\\n[02:40.59] A soft caress as cold as death (Cold as death)\\n[02:49.80]
+        I hear your heart-beat in my soul\\n[02:53.04] Our endings bound, our bodies
+        know\\n[02:58.10] \\n[03:01.70] I can't go yet\\n[03:04.84] Don't let me die\\n[03:07.89]
+        I want to live\\n[03:10.99] My only one\\n[03:13.95] There's more to do, if
+        we can only live\\n[03:20.31] The clock won't stop and this is what we get\\n[03:25.72]
+        \"}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - '3029'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 05 Oct 2023 07:39:51 GMT
+      Server:
+      - Caddy
+      - Caddy
+      Vary:
+      - Origin
+    status:
+      code: 200
+      message: OK
+version: 1
