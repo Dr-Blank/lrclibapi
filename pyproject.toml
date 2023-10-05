@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lrclibpy"
-version = "0.1.0"
+version = "0.1.1"
 description = "python wrapper for the lrclib.net api"
 authors = ["Dr-Blank <64108942+Dr-Blank@users.noreply.github.com>"]
 readme = "README.md"
