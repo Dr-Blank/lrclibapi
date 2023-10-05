@@ -1,3 +1,4 @@
+"""Exceptions for the LRC API."""
 import requests
 
 

@@ -65,6 +65,8 @@ class LrcLibAPI:
                     raise NotFoundError(response) from exc
                 case 429:
                     raise RateLimitError(response) from exc
+                case 400:
+                    raise IncorrectPublishTokenError(response) from exc
                 case _ if 500 <= response.status_code < 600:
                     raise ServerError(response) from exc
                 case _:
@@ -72,7 +74,7 @@ class LrcLibAPI:
 
         return response
 
-    def get_lyrics(
+    def get_lyrics(  # pylint: disable=too-many-arguments
         self,
         track_name: str,
         artist_name: str,
@@ -80,6 +82,23 @@ class LrcLibAPI:
         duration: int,
         cached: bool = False,
     ) -> Dict[str, Any]:
+        """
+        Get lyrics from LRCLIB.
+
+        :param track_name: name of the track
+        :type track_name: str
+        :param artist_name: name of the artist
+        :type artist_name: str
+        :param album_name: name of the album
+        :type album_name: str
+        :param duration: duration of the track in seconds
+        :type duration: int
+        :param cached: set to True to get cached lyrics, defaults to False
+        :type cached: bool, optional
+        :return: a dictionary with response data
+        :rtype: Dict[str, Any]
+        """
+
         endpoint = ENDPOINTS["get_cached" if cached else "get"]
         params = {
             "track_name": track_name,
@@ -90,7 +109,15 @@ class LrcLibAPI:
         response = self._make_request("GET", endpoint, params=params)
         return response.json()
 
-    def get_lyrics_by_id(self, lrclib_id: str | int):
+    def get_lyrics_by_id(self, lrclib_id: str | int) -> Dict[str, Any]:
+        """
+        Get lyrics from LRCLIB by ID.
+
+        :param lrclib_id: ID of the lyrics
+        :type lrclib_id: str | int
+        :return: a dictionary with response data
+        :rtype: Dict[str, Any]
+        """
         endpoint = ENDPOINTS["get_by_id"].format(id=lrclib_id)
         response = self._make_request("GET", endpoint)
         return response.json()
@@ -102,6 +129,26 @@ class LrcLibAPI:
         artist_name: str | None = None,
         album_name: str | None = None,
     ) -> List:
+        """
+        Search lyrics from LRCLIB.
+
+        :param query: query string, defaults to None
+        :type query: str | None, optional
+        :param track_name: defaults to None
+        :type track_name: str | None, optional
+        :param artist_name: defaults to None
+        :type artist_name: str | None, optional
+        :param album_name: defaults to None
+        :type album_name: str | None, optional
+        :return: a list of search results
+        :rtype: List
+        """
+        # either query or track_name is required
+        if not query and not track_name:
+            raise ValueError(
+                "Either query or track_name is required to search lyrics"
+            )
+
         endpoint = ENDPOINTS["search"]
         params = {
             "q": query,
@@ -131,10 +178,16 @@ class LrcLibAPI:
         try:
             response = self._make_request("POST", endpoint)
         except APIError as exc:
-            raise APIError(f"Failed to request challenge: {exc}") from exc
+            raise exc
         return response.json()
 
     def obtain_publish_token(self) -> str:
+        """
+        Obtain a Publish Token for submitting lyrics to LRCLIB.
+
+        :return: A Publish Token
+        :rtype: str
+        """
         challenge = self.request_challenge()
         solver = CryptoChallengeSolver()
         nonce = solver.solve_challenge(
@@ -142,7 +195,7 @@ class LrcLibAPI:
         )
         return f"{challenge['prefix']}:{nonce}"
 
-    def publish_lyrics(
+    def publish_lyrics(  # pylint: disable=too-many-arguments
         self,
         track_name: str,
         artist_name: str,
@@ -151,7 +204,30 @@ class LrcLibAPI:
         plain_lyrics: Optional[str] = None,
         synced_lyrics: Optional[str] = None,
         publish_token: Optional[str] = None,
-    ) -> requests.Response:
+    ) -> Dict[str, Any]:
+        """
+        Publish lyrics to LRCLIB.
+
+        :param track_name:
+        :type track_name: str
+        :param artist_name:
+        :type artist_name: str
+        :param album_name:
+        :type album_name: str
+        :param duration:
+        :type duration: int
+        :param plain_lyrics: , defaults to None
+        :type plain_lyrics: Optional[str], optional
+        :param synced_lyrics: , defaults to None
+        :type synced_lyrics: Optional[str], optional
+        :param publish_token: token for publishing lyrics, to obtain a new \
+            token, use the `obtain_publish_token` method, defaults to None
+        :type publish_token: Optional[str], optional
+        :raises IncorrectPublishTokenError: if the publish token is incorrect
+        :raises APIError: if the request fails
+        :return: a dictionary with response data
+        :rtype: Dict[str, Any]
+        """
         endpoint = ENDPOINTS["publish"]
 
         if not publish_token:
@@ -174,8 +250,4 @@ class LrcLibAPI:
             return response.json()
 
         except APIError as exc:
-            if exc.status_code == 400:
-                raise IncorrectPublishTokenError(
-                    "Incorrect publish token"
-                ) from exc
-            raise APIError(f"Failed to publish lyrics: {exc}") from exc
+            raise exc

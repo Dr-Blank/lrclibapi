@@ -2,7 +2,6 @@
 # https://github.com/tranxuanthang/lrcget/blob/main/src-tauri/src/lrclib/challenge_solver.rs
 
 import hashlib
-import multiprocessing
 from typing import List
 
 
@@ -34,7 +33,8 @@ class CryptoChallengeSolver:
     @classmethod
     def solve_challenge(cls, prefix: str, target_hex: str) -> str:
         """
-        Solve a cryptographic challenge by finding a nonce that satisfies the target.
+        Solve a cryptographic challenge by finding a nonce that satisfies the \
+            target.
 
         :param prefix: The prefix string of the challenge.
         :param target_hex: The target hash in hexadecimal format.
