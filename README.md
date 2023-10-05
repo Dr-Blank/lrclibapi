@@ -36,10 +36,10 @@ api = LrcLibAPI(user_agent="my-app/0.0.1")
 
 # Get lyrics for a track
 lyrics = api.get_lyrics(
-  track_name="I Want to Live",
-  artist_name="Borislav Slavov",
-  album_name="Baldur's Gate 3 (Original Game Soundtrack)",
-  duration=233,
+    track_name="I Want to Live",
+    artist_name="Borislav Slavov",
+    album_name="Baldur's Gate 3 (Original Game Soundtrack)",
+    duration=233,
 )
 
 # Print the lyrics
@@ -47,18 +47,17 @@ print(lyrics["syncedLyrics"])
 
 # Search for a lyrics
 results = api.search_lyrics(
-  track_name="I Want to Live",
-  duration=233,
+    track_name="I Want to Live",
 )
 
 # Print the results
 for result in results:
-  print(result["id"])
-  print(result["artistName"])
-  print(result["albumName"])
+    print(result["id"])
+    print(result["artistName"])
+    print(result["albumName"])
 
 # Get lyrics by ID
-lyrics = api.get_lyrics_by_id(lyrics_id=results[0]["id"])
+lyrics = api.get_lyrics_by_id(lrclib_id=results[0]["id"])
 
 # Print the lyrics
 print(lyrics["syncedLyrics"] or lyrics["plainLyrics"])
