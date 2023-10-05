@@ -5,9 +5,34 @@ description = "python wrapper for the lrclib.net api"
 authors = ["Dr-Blank <64108942+Dr-Blank@users.noreply.github.com>"]
 readme = "README.md"
 license = "MIT"
+homepage = "https://github.com/Dr-Blank/lrclibpy"
+repository = "https://github.com/Dr-Blank/lrclibpy"
+keywords = [
+  "lrclib",
+  "lrclib.net",
+  "lrclib.net api",
+  "lrclib.net python",
+  "lrclib.net python api",
+  "lrclib.net python wrapper",
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.17.6"
+pytest = "^7.4.2"
+black = "^23.9.1"
+pre-commit = "^3.4.0"
+pytest-cov = "^4.1.0"
+flake8 = "^6.1.0"
+tox = "^4.11.3"
+wrapt = "^1.15.0"
+dill = "^0.3.7"
+mypy = "^1.5.1"
+vcrpy = "^5.1.0"
+
 
 
 [build-system]
