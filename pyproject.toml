@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "lrclibpy"
+name = "lrclibapi"
 packages = [
   { include = "lrclib", from = "." },
 ]
@@ -8,8 +8,8 @@ description = "python wrapper for the lrclib.net api"
 authors = ["Dr-Blank <64108942+Dr-Blank@users.noreply.github.com>"]
 readme = "README.md"
 license = "MIT"
-homepage = "https://github.com/Dr-Blank/lrclibpy"
-repository = "https://github.com/Dr-Blank/lrclibpy"
+homepage = "https://github.com/Dr-Blank/lrclibapi"
+repository = "https://github.com/Dr-Blank/lrclibapi"
 keywords = [
   "lrclib",
   "lrclib.net",
