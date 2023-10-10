@@ -75,10 +75,7 @@ def is_valid_get_result(result: Lyrics) -> bool:
         and result.lang == expected_content["lang"]
         and result.isrc == expected_content["isrc"]
         and result.spotify_id == expected_content["spotifyId"]
-        and isinstance(result.release_date, datetime)
-        # and result.release_date == datetime.fromisoformat(
-        #     expected_content["releaseDate"]
-        # )
+        and result.release_date == datetime(2023, 8, 10, 0, 0, 0)
     )
 
 

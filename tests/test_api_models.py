@@ -70,7 +70,7 @@ def test_lyrics_from_dict() -> None:
     assert lyrics.lang == full_lyrics["lang"]
     assert lyrics.isrc == full_lyrics["isrc"]
     assert lyrics.spotify_id == full_lyrics["spotifyId"]
-    assert isinstance(lyrics.release_date, datetime)
+    assert lyrics.release_date == datetime(2023, 8, 10, 0, 0, 0)
 
 
 def test_error_response_from_dict() -> None:
