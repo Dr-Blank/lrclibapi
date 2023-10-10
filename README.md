@@ -43,7 +43,7 @@ lyrics = api.get_lyrics(
 )
 
 # Print the lyrics
-print(lyrics["syncedLyrics"])
+print(lyrics.synced_lyrics or lyrics.plain_lyrics)
 
 # Search for a lyrics
 results = api.search_lyrics(
@@ -52,15 +52,13 @@ results = api.search_lyrics(
 
 # Print the results
 for result in results:
-    print(result["id"])
-    print(result["artistName"])
-    print(result["albumName"])
+    print(f"{result.artist_name} - {result.track_name} ({result.album_name})")
 
 # Get lyrics by ID
-lyrics = api.get_lyrics_by_id(lrclib_id=results[0]["id"])
+lyrics = api.get_lyrics_by_id(lrclib_id=results[0].id)
 
 # Print the lyrics
-print(lyrics["syncedLyrics"] or lyrics["plainLyrics"])
+print(lyrics.synced_lyrics or lyrics.plain_lyrics)
 ```
 
 ## Features in Development
