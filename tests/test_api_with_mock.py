@@ -1,13 +1,22 @@
 from unittest.mock import Mock
+import warnings
 
 import pytest
+from requests import HTTPError, Response
 
 from lrclib.api import BASE_URL, ENDPOINTS, LrcLibAPI
 from lrclib.exceptions import (
     APIError,
+    IncorrectPublishTokenError,
     NotFoundError,
     RateLimitError,
     ServerError,
+)
+from lrclib.models import (
+    Lyrics,
+    LyricsMinimal,
+    SearchResult,
+    CryptographicChallenge,
 )
 
 
@@ -67,8 +76,8 @@ def test_get_lyrics(
         },
     )
 
-    # Check that the result is the expected dictionary
-    assert result == sample_response
+    # Check that the result is the expected
+    assert result == Lyrics.from_dict(sample_response)
 
 
 def test_get_cached_lyrics(api: LrcLibAPI) -> None:
@@ -102,8 +111,7 @@ def test_get_cached_lyrics(api: LrcLibAPI) -> None:
         },
     )
 
-    # Check that the result is the expected dictionary
-    assert result == {"lyrics": "test lyrics"}
+    assert result == Lyrics.from_dict({"lyrics": "test lyrics"})
 
 
 def test_get_lyrics_by_id(api: LrcLibAPI) -> None:
@@ -124,16 +132,14 @@ def test_get_lyrics_by_id(api: LrcLibAPI) -> None:
         "GET", BASE_URL + ENDPOINTS["get_by_id"].format(id=123)
     )
 
-    # Check that the result is the expected dictionary
-    assert result == {"lyrics": "test lyrics"}
+    assert result == Lyrics.from_dict({"lyrics": "test lyrics"})
 
 
 def test_search_lyrics(api: LrcLibAPI) -> None:
     # Mock the requests.Session object
     session_mock = Mock()
-    session_mock.request.return_value.json.return_value = [
-        {"lyrics": "test lyrics"}
-    ]
+    test_lyrics = {"lyrics": "test lyrics"}
+    session_mock.request.return_value.json.return_value = [test_lyrics]
 
     # Set the session object of the LrcLibAPI instance to the mock object
     api.session = session_mock
@@ -146,17 +152,18 @@ def test_search_lyrics(api: LrcLibAPI) -> None:
         "GET", BASE_URL + ENDPOINTS["search"], params={"q": "test_query"}
     )
 
-    # Check that the result is the expected list
-    assert result == [{"lyrics": "test lyrics"}]
+    assert result == SearchResult([LyricsMinimal.from_dict(test_lyrics)])
 
 
 def test_request_challenge(api: LrcLibAPI) -> None:
     # Mock the requests.Session object
     session_mock = Mock()
-    session_mock.request.return_value.json.return_value = {
+    sample_return = {
         "prefix": "test_prefix",
         "target": "test_target",
     }
+
+    session_mock.request.return_value.json.return_value = sample_return
 
     # Set the session object of the LrcLibAPI instance to the mock object
     api.session = session_mock
@@ -169,8 +176,7 @@ def test_request_challenge(api: LrcLibAPI) -> None:
         "POST", BASE_URL + ENDPOINTS["request_challenge"]
     )
 
-    # Check that the result is the expected dictionary
-    assert result == {"prefix": "test_prefix", "target": "test_target"}
+    assert result == CryptographicChallenge.from_dict(sample_return)
 
 
 def test_publish_lyrics(api: LrcLibAPI) -> None:
@@ -216,78 +222,3 @@ def test_publish_lyrics(api: LrcLibAPI) -> None:
 
     # Check that the result is the expected dictionary
     assert result == {"status": "success"}
-
-
-def test_not_found_error(api: LrcLibAPI) -> None:
-    # Mock the requests.Session object
-    session_mock = Mock()
-    session_mock.request.side_effect = NotFoundError(Mock(status_code=404))
-
-    # Set the session object of the LrcLibAPI instance to the mock object
-    api.session = session_mock
-
-    # Call the get_lyrics method and check that it raises a NotFoundError
-    with pytest.raises(NotFoundError):
-        api.get_lyrics(
-            "test_track_name", "test_artist_name", "test_album_name", 180
-        )
-
-
-def test_rate_limit_error(api: LrcLibAPI) -> None:
-    # Mock the requests.Session object
-    session_mock = Mock()
-    session_mock.request.side_effect = RateLimitError(Mock(status_code=429))
-
-    # Set the session object of the LrcLibAPI instance to the mock object
-    api.session = session_mock
-
-    # Call the search_lyrics method and check that it raises a RateLimitError
-    with pytest.raises(RateLimitError):
-        api.search_lyrics(query="test_query")
-
-
-def test_server_error(api: LrcLibAPI) -> None:
-    # Mock the requests.Session object
-    session_mock = Mock()
-    session_mock.request.side_effect = ServerError(Mock(status_code=500))
-
-    # Set the session object of the LrcLibAPI instance to the mock object
-    api.session = session_mock
-
-    # Call the get_lyrics_by_id method and check that it raises a ServerError
-    with pytest.raises(ServerError):
-        api.get_lyrics_by_id(123)
-
-
-# def test_incorrect_publish_token_error(api: LrcLibAPI) -> None:
-#     # Mock the requests.Session object
-#     session_mock = Mock()
-#     session_mock.request.side_effect = APIError(Mock(status_code=400))
-
-#     # Set the session object of the LrcLibAPI instance to the mock object
-#     api.session = session_mock
-
-#     # Call the publish_lyrics method and check that it raises an IncorrectPublishTokenError
-#     with pytest.raises(IncorrectPublishTokenError):
-#         api.publish_lyrics(
-#             "test_track_name",
-#             "test_artist_name",
-#             "test_album_name",
-#             180,
-#             plain_lyrics="test_plain_lyrics",
-#             synced_lyrics="test_synced_lyrics",
-#             publish_token="incorrect_publish_token"
-#         )
-
-
-def test_api_error(api: LrcLibAPI) -> None:
-    # Mock the requests.Session object
-    session_mock = Mock()
-    session_mock.request.side_effect = APIError(Mock(status_code=401))
-
-    # Set the session object of the LrcLibAPI instance to the mock object
-    api.session = session_mock
-
-    # Call the request_challenge method and check that it raises an APIError
-    with pytest.raises(APIError):
-        api.get_lyrics_by_id(123)

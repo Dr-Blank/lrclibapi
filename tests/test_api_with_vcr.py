@@ -1,3 +1,4 @@
+from datetime import datetime
 import pytest
 import vcr
 
@@ -8,6 +9,13 @@ from lrclib.exceptions import (
     NotFoundError,
     RateLimitError,
     ServerError,
+)
+
+from lrclib.models import (
+    CryptographicChallenge,
+    Lyrics,
+    LyricsMinimal,
+    SearchResult,
 )
 
 
@@ -36,44 +44,41 @@ expected_content = {
     "spotifyId": "5Y94QNZmNoHid18Y7c5Al9",
     "releaseDate": "2023-08-10T00:00:00Z",
     "plainLyrics": (
-        "I feel your breath upon my neck\n...The clock won't stop and this"
-        " is what we get\n"
+        "I feel your breath upon my neck\nA soft caress as cold as death\n"
     ),
     "syncedLyrics": (
-        "[00:17.12] I feel your breath upon my neck\n...[03:20.31] The"
-        " clock won't stop and this is what we get\n[03:25.72] "
+        "[00:17.12] I feel your breath upon my neck\n[00:20.41] A soft caress"
+        " as cold as death\n"
     ),
 }
 
-expected_search_keys = [
-    "id",
-    "trackName",
-    "artistName",
-    "albumName",
-    "duration",
-    "instrumental",
-    "plainLyrics",
-    "syncedLyrics",
-]
 
-
-def is_valid_search_result(result: list) -> bool:
+def is_valid_search_result(result: SearchResult) -> bool:
     return (
-        isinstance(result, list)
+        isinstance(result, SearchResult)
         and len(result) > 0
-        and all(isinstance(item, dict) for item in result)
-        and all(key in result[0] for key in expected_search_keys)
-        and all(result[0][key] is not None for key in expected_search_keys)
+        and all(isinstance(item, LyricsMinimal) for item in result)
     )
 
-
-def is_valid_get_result(result: dict) -> bool:
+def is_valid_get_result(result: Lyrics) -> bool:
     return (
-        isinstance(result, dict)
-        and all(key in result for key in expected_content)
-        and all(result[key] is not None for key in expected_content)
+        isinstance(result, Lyrics)
+        and result.name == expected_content["name"]
+        and result.track_name == expected_content["trackName"]
+        and result.artist_name == expected_content["artistName"]
+        and result.album_name == expected_content["albumName"]
+        and result.duration == expected_content["duration"]
+        and result.instrumental == expected_content["instrumental"]
+        and result.plain_lyrics.startswith(expected_content["plainLyrics"])
+        and result.synced_lyrics.startswith(expected_content["syncedLyrics"])
+        and result.lang == expected_content["lang"]
+        and result.isrc == expected_content["isrc"]
+        and result.spotify_id == expected_content["spotifyId"]
+        and isinstance(result.release_date, datetime)
+        and result.release_date == datetime.fromisoformat(
+            expected_content["releaseDate"]
+        )
     )
-
 
 @my_vcr.use_cassette()
 def test_get_lyrics(api: LrcLibAPI) -> None:
