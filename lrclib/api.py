@@ -1,7 +1,7 @@
 """ API for lrclib"""
 
 import warnings
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 import requests
 
@@ -12,6 +12,11 @@ from .exceptions import (
     NotFoundError,
     RateLimitError,
     ServerError,
+)
+from .models import (
+    CryptographicChallenge,
+    Lyrics,
+    SearchResult,
 )
 
 BASE_URL = "https://lrclib.net/api"
@@ -60,6 +65,7 @@ class LrcLibAPI:
             response = self.session.request(method, url, **kwargs)
             response.raise_for_status()
         except requests.exceptions.HTTPError as exc:
+            response = exc.response
             match response.status_code:
                 case 404:
                     raise NotFoundError(response) from exc
@@ -81,7 +87,7 @@ class LrcLibAPI:
         album_name: str,
         duration: int,
         cached: bool = False,
-    ) -> Dict[str, Any]:
+    ) -> Lyrics:
         """
         Get lyrics from LRCLIB.
 
@@ -96,7 +102,7 @@ class LrcLibAPI:
         :param cached: set to True to get cached lyrics, defaults to False
         :type cached: bool, optional
         :return: a dictionary with response data
-        :rtype: Dict[str, Any]
+        :rtype: Lyrics
         """
 
         endpoint = ENDPOINTS["get_cached" if cached else "get"]
@@ -107,20 +113,20 @@ class LrcLibAPI:
             "duration": duration,
         }
         response = self._make_request("GET", endpoint, params=params)
-        return response.json()
+        return Lyrics.from_dict(response.json())
 
-    def get_lyrics_by_id(self, lrclib_id: str | int) -> Dict[str, Any]:
+    def get_lyrics_by_id(self, lrclib_id: str | int) -> Lyrics:
         """
         Get lyrics from LRCLIB by ID.
 
         :param lrclib_id: ID of the lyrics
         :type lrclib_id: str | int
         :return: a dictionary with response data
-        :rtype: Dict[str, Any]
+        :rtype: :class:`Lyrics`
         """
         endpoint = ENDPOINTS["get_by_id"].format(id=lrclib_id)
         response = self._make_request("GET", endpoint)
-        return response.json()
+        return Lyrics.from_dict(response.json())
 
     def search_lyrics(
         self,
@@ -128,7 +134,7 @@ class LrcLibAPI:
         track_name: str | None = None,
         artist_name: str | None = None,
         album_name: str | None = None,
-    ) -> List:
+    ) -> SearchResult:
         """
         Search lyrics from LRCLIB.
 
@@ -141,7 +147,7 @@ class LrcLibAPI:
         :param album_name: defaults to None
         :type album_name: str | None, optional
         :return: a list of search results
-        :rtype: List
+        :rtype: :class:`SearchResult`
         """
         # either query or track_name is required
         if not query and not track_name:
@@ -160,10 +166,10 @@ class LrcLibAPI:
         try:
             response = self._make_request("GET", endpoint, params=params)
         except NotFoundError:
-            return []
-        return response.json()
+            return SearchResult([])
+        return SearchResult.from_list(response.json())
 
-    def request_challenge(self) -> Dict[str, str]:
+    def request_challenge(self) -> CryptographicChallenge:
         """
         Generate a pair of prefix and target strings for the \
             cryptographic challenge. Each challenge has an \
@@ -172,14 +178,14 @@ class LrcLibAPI:
         The challenge's solution is a nonce, which can be used \
             to create a Publish Token for submitting lyrics to LRCLIB.
 
-        :return: A dictionary with the following keys: prefix and target.
+        :return: :class:`CryptographicChallenge`
         """
         endpoint = ENDPOINTS["request_challenge"]
         try:
             response = self._make_request("POST", endpoint)
         except APIError as exc:
             raise exc
-        return response.json()
+        return CryptographicChallenge.from_dict(response.json())
 
     def obtain_publish_token(self) -> str:
         """
@@ -190,10 +196,8 @@ class LrcLibAPI:
         """
         challenge = self.request_challenge()
         solver = CryptoChallengeSolver()
-        nonce = solver.solve_challenge(
-            challenge["prefix"], challenge["target"]
-        )
-        return f"{challenge['prefix']}:{nonce}"
+        nonce = solver.solve_challenge(challenge.prefix, challenge.target)
+        return f"{challenge.prefix}:{nonce}"
 
     def publish_lyrics(  # pylint: disable=too-many-arguments
         self,
