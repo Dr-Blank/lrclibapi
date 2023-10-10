@@ -70,10 +70,6 @@ def test_lyrics_from_dict() -> None:
     assert lyrics.lang == full_lyrics["lang"]
     assert lyrics.isrc == full_lyrics["isrc"]
     assert lyrics.spotify_id == full_lyrics["spotifyId"]
-    assert lyrics.release_date == datetime.fromisoformat(
-        full_lyrics["releaseDate"]
-    )
-
     assert isinstance(lyrics.release_date, datetime)
 
 

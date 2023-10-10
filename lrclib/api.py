@@ -44,8 +44,10 @@ class LrcLibAPI:
 
         if not user_agent:
             warnings.warn(
-                "Missing user agent, please set it with the `user_agent`"
-                " argument",
+                (
+                    "Missing user agent, please set it with the `user_agent`"
+                    " argument"
+                ),
                 UserWarning,
             )
         else:

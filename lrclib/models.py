@@ -95,7 +95,10 @@ class Lyrics(BaseModel["Lyrics"]):
         if self.release_date is not None:
             if not isinstance(self.release_date, str):
                 return
-            self.release_date = datetime.fromisoformat(self.release_date)
+            # 2023-08-10T00:00:00Z
+            self.release_date = datetime.strptime(
+                self.release_date, "%Y-%m-%dT%H:%M:%SZ"
+            )
 
 
 @dataclass
