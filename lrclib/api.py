@@ -1,5 +1,6 @@
 """ API for lrclib"""
 
+import os
 import warnings
 from typing import Any, Dict, Optional
 
@@ -13,11 +14,7 @@ from .exceptions import (
     RateLimitError,
     ServerError,
 )
-from .models import (
-    CryptographicChallenge,
-    Lyrics,
-    SearchResult,
-)
+from .models import CryptographicChallenge, Lyrics, SearchResult
 
 BASE_URL = "https://lrclib.net/api"
 ENDPOINTS: Dict[str, str] = {
@@ -44,10 +41,8 @@ class LrcLibAPI:
 
         if not user_agent:
             warnings.warn(
-                (
-                    "Missing user agent, please set it with the `user_agent`"
-                    " argument"
-                ),
+                "Missing user agent"
+                + "please set it with the `user_agent` argument",
                 UserWarning,
             )
         else:
@@ -187,16 +182,19 @@ class LrcLibAPI:
             raise exc
         return CryptographicChallenge.from_dict(response.json())
 
-    def obtain_publish_token(self) -> str:
+    def _obtain_publish_token(self) -> str:
         """
         Obtain a Publish Token for submitting lyrics to LRCLIB.
 
         :return: A Publish Token
         :rtype: str
         """
+
+        num_threads = os.cpu_count() or 1
         challenge = self.request_challenge()
-        solver = CryptoChallengeSolver()
-        nonce = solver.solve_challenge(challenge.prefix, challenge.target)
+        nonce = CryptoChallengeSolver.solve(
+            challenge.prefix, challenge.target, num_threads=num_threads
+        )
         return f"{challenge.prefix}:{nonce}"
 
     def publish_lyrics(  # pylint: disable=too-many-arguments
@@ -235,7 +233,7 @@ class LrcLibAPI:
         endpoint = ENDPOINTS["publish"]
 
         if not publish_token:
-            publish_token = self.obtain_publish_token()
+            publish_token = self._obtain_publish_token()
 
         headers = {"X-Publish-Token": publish_token}
         data = {
