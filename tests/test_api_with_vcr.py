@@ -123,3 +123,10 @@ def test_not_found(api: LrcLibAPI) -> None:
             233,
             cached=False,
         )
+
+
+# test request challenge
+@my_vcr.use_cassette()
+def test_request_challenge(api: LrcLibAPI) -> None:
+    result = api.request_challenge()
+    assert isinstance(result, CryptographicChallenge)
