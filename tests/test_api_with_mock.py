@@ -1,23 +1,14 @@
-from unittest.mock import Mock
 import warnings
+from unittest.mock import Mock
 
 import pytest
 from requests import HTTPError, Response
 
 from lrclib.api import BASE_URL, ENDPOINTS, LrcLibAPI
-from lrclib.exceptions import (
-    APIError,
-    IncorrectPublishTokenError,
-    NotFoundError,
-    RateLimitError,
-    ServerError,
-)
-from lrclib.models import (
-    Lyrics,
-    LyricsMinimal,
-    SearchResult,
-    CryptographicChallenge,
-)
+from lrclib.exceptions import (APIError, IncorrectPublishTokenError,
+                               NotFoundError, RateLimitError, ServerError)
+from lrclib.models import (CryptographicChallenge, Lyrics, LyricsMinimal,
+                           SearchResult)
 
 
 @pytest.fixture(scope="module")
@@ -190,7 +181,7 @@ def test_publish_lyrics(api: LrcLibAPI) -> None:
 
     # Set the session object and obtain_publish_token method of the LrcLibAPI instance to the mock objects
     api.session = session_mock
-    api.obtain_publish_token = api_mock.obtain_publish_token
+    api._obtain_publish_token = api_mock.obtain_publish_token
 
     # Call the publish_lyrics method
     result = api.publish_lyrics(
