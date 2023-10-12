@@ -1,0 +1,37 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - test_user_agent
+    method: POST
+    uri: https://lrclib.net/api/request-challenge
+  response:
+    body:
+      string: '{"prefix":"dkcXJrnbr0GY75W2H5Gqn3xcWdtzs5Qq","target":"000000FF00000000000000000000000000000000000000000000000000000000"}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - '121'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 12 Oct 2023 08:23:49 GMT
+      Server:
+      - Caddy
+      - Caddy
+      Vary:
+      - Origin
+    status:
+      code: 200
+      message: OK
+version: 1
