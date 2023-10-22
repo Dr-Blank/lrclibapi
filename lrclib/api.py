@@ -60,7 +60,7 @@ class LrcLibAPI:
             response = self.session.request(method, url, **kwargs)
             response.raise_for_status()
         except requests.exceptions.HTTPError as exc:
-            response = exc.response
+            response = exc.response or requests.Response()
             match response.status_code:
                 case 404:
                     raise NotFoundError(response) from exc
