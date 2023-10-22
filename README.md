@@ -60,7 +60,3 @@ lyrics = api.get_lyrics_by_id(lrclib_id=results[0].id)
 # Print the lyrics
 print(lyrics.synced_lyrics or lyrics.plain_lyrics)
 ```
-
-## Features in Development
-
-* [ ] Add cryptography challenge solver for posting lyrics
