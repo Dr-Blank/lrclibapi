@@ -48,7 +48,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run tests with coverage
-        run: poetry run pytest --cov=lrclib tests/
+        run: poetry run pytest --cov-report= --cov=lrclib tests/
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
