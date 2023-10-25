@@ -57,7 +57,7 @@
     {
       "label": "black",
       "type": "shell",
-      "command": "poetry run black lrclib/",
+      "command": "poetry run black lrclib/ --line-length=79 --preview",
       "group": {
         "kind": "build",
         "isDefault": false
