@@ -13,7 +13,7 @@
     {
       "label": "pytest",
       "type": "shell",
-      "command": "poetry run pytest --cov --cov-report=html:coverage_report",
+      "command": "poetry run pytest --cov=lrclib --cov-report=html:coverage_report",
       "group": {
         "kind": "test",
         "isDefault": false
