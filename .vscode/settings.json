@@ -9,6 +9,5 @@
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
   "autoDocstring.docstringFormat": "sphinx",
-  "python.linting.flake8Enabled": true,
   "python.analysis.typeCheckingMode": "basic"
 }
