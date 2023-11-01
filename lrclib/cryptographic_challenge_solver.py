@@ -1,4 +1,5 @@
 """ A module that provides a class to solve a cryptographic challenge. """
+
 # https://github.com/tranxuanthang/lrcget/blob/main/src-tauri/src/lrclib/challenge_solver.rs
 
 import hashlib
@@ -21,7 +22,7 @@ class Solution:
         return self.nonce is not None
 
 
-def is_nonce_valid(prefix: str, nonce: int | str, target: bytes) -> bool:
+def is_nonce_valid(prefix: str, nonce: "int | str", target: bytes) -> bool:
     """Check if the given nonce satisfies the target hash.
 
     :param prefix: The prefix string of the challenge.
