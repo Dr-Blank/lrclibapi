@@ -2,6 +2,7 @@
 
 import os
 import warnings
+from http import HTTPStatus
 from typing import Any, Dict, Optional
 
 import requests
@@ -62,11 +63,11 @@ class LrcLibAPI:
         except requests.exceptions.HTTPError as exc:
             response = exc.response  # type: ignore
             match response.status_code:
-                case 404:
+                case HTTPStatus.NOT_FOUND:
                     raise NotFoundError(response) from exc
-                case 429:
+                case HTTPStatus.TOO_MANY_REQUESTS:
                     raise RateLimitError(response) from exc
-                case 400:
+                case HTTPStatus.BAD_REQUEST:
                     raise IncorrectPublishTokenError(response) from exc
                 case _ if 500 <= response.status_code < 600:
                     raise ServerError(response) from exc
