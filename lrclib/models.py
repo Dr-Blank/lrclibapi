@@ -1,4 +1,5 @@
 """Models for api.py"""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -116,7 +117,7 @@ class ErrorResponse(BaseModel["ErrorResponse"]):
     }
 
 
-class SearchResult(list[LyricsMinimal]):
+class SearchResult(List[LyricsMinimal]):
     """Search result"""
 
     def __init__(self, data: List[LyricsMinimal]) -> None:

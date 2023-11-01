@@ -33,8 +33,8 @@ class LrcLibAPI:
     def __init__(
         self,
         user_agent: str,
-        base_url: str | None = None,
-        session: requests.Session | None = None,
+        base_url: "str | None" = None,
+        session: "requests.Session | None" = None,
     ):
         self._base_url = base_url or BASE_URL
         self.session = session or requests.Session()
@@ -61,18 +61,15 @@ class LrcLibAPI:
             response.raise_for_status()
         except requests.exceptions.HTTPError as exc:
             response = exc.response  # type: ignore
-            match response.status_code:
-                case 404:
-                    raise NotFoundError(response) from exc
-                case 429:
-                    raise RateLimitError(response) from exc
-                case 400:
-                    raise IncorrectPublishTokenError(response) from exc
-                case _ if 500 <= response.status_code < 600:
-                    raise ServerError(response) from exc
-                case _:
-                    raise APIError(response) from exc
-
+            if response.status_code == 404:
+                raise NotFoundError(response) from exc
+            if response.status_code == 429:
+                raise RateLimitError(response) from exc
+            if response.status_code == 400:
+                raise IncorrectPublishTokenError(response) from exc
+            if 500 <= response.status_code < 600:
+                raise ServerError(response) from exc
+            raise APIError(response) from exc
         return response
 
     def get_lyrics(  # pylint: disable=too-many-arguments
@@ -110,7 +107,7 @@ class LrcLibAPI:
         response = self._make_request("GET", endpoint, params=params)
         return Lyrics.from_dict(response.json())
 
-    def get_lyrics_by_id(self, lrclib_id: str | int) -> Lyrics:
+    def get_lyrics_by_id(self, lrclib_id: "str | int") -> Lyrics:
         """
         Get lyrics from LRCLIB by ID.
 
@@ -125,10 +122,10 @@ class LrcLibAPI:
 
     def search_lyrics(
         self,
-        query: str | None = None,
-        track_name: str | None = None,
-        artist_name: str | None = None,
-        album_name: str | None = None,
+        query: "str | None" = None,
+        track_name: "str | None" = None,
+        artist_name: "str | None" = None,
+        album_name: "str | None" = None,
     ) -> SearchResult:
         """
         Search lyrics from LRCLIB.
