@@ -10,7 +10,7 @@ from lrclib.models import (
     CryptographicChallenge,
 )
 
-minimized_lyrics = {
+minimal_lyrics = {
     "id": 123,
     "name": "test_name",
     "trackName": "test_track_name",
@@ -23,34 +23,34 @@ minimized_lyrics = {
 }
 
 full_lyrics = {
-    **minimized_lyrics,
+    **minimal_lyrics,
     "lang": "test_lang",
     "isrc": "test_isrc",
     "spotifyId": "test_spotify_id",
     "releaseDate": "2023-08-10T00:00:00Z",
 }
 
-sample_search_result = [minimized_lyrics, minimized_lyrics]
+sample_search_result = [minimal_lyrics, minimal_lyrics]
 
 
 def test_lyrics_minimal_from_dict() -> None:
     """Test the LyricsMinimal.from_dict method"""
     # Create a LyricsMinimal object from a dictionary
-    lyrics = LyricsMinimal.from_dict(minimized_lyrics)
+    lyrics = LyricsMinimal.from_dict(minimal_lyrics)
 
     # Check that the LyricsMinimal object has the expected type
     assert isinstance(lyrics, LyricsMinimal)
 
     # Check that the LyricsMinimal object has the expected attributes
-    assert lyrics.id == minimized_lyrics["id"]
-    assert lyrics.name == minimized_lyrics["name"]
-    assert lyrics.track_name == minimized_lyrics["trackName"]
-    assert lyrics.artist_name == minimized_lyrics["artistName"]
-    assert lyrics.album_name == minimized_lyrics["albumName"]
-    assert lyrics.duration == minimized_lyrics["duration"]
-    assert lyrics.instrumental == minimized_lyrics["instrumental"]
-    assert lyrics.plain_lyrics == minimized_lyrics["plainLyrics"]
-    assert lyrics.synced_lyrics == minimized_lyrics["syncedLyrics"]
+    assert lyrics.id == minimal_lyrics["id"]
+    assert lyrics.name == minimal_lyrics["name"]
+    assert lyrics.track_name == minimal_lyrics["trackName"]
+    assert lyrics.artist_name == minimal_lyrics["artistName"]
+    assert lyrics.album_name == minimal_lyrics["albumName"]
+    assert lyrics.duration == minimal_lyrics["duration"]
+    assert lyrics.instrumental == minimal_lyrics["instrumental"]
+    assert lyrics.plain_lyrics == minimal_lyrics["plainLyrics"]
+    assert lyrics.synced_lyrics == minimal_lyrics["syncedLyrics"]
 
 
 def test_lyrics_from_dict() -> None:
@@ -71,6 +71,12 @@ def test_lyrics_from_dict() -> None:
     assert lyrics.isrc == full_lyrics["isrc"]
     assert lyrics.spotify_id == full_lyrics["spotifyId"]
     assert lyrics.release_date == datetime(2023, 8, 10, 0, 0, 0)
+
+
+def test_lyrics_from_dict_with_proper_release_date() -> None:
+    lyrics = Lyrics.from_dict(full_lyrics)
+    lyrics_proper = Lyrics(**lyrics.__dict__)
+    assert lyrics_proper.release_date == datetime(2023, 8, 10, 0, 0, 0)
 
 
 def test_error_response_from_dict() -> None:
