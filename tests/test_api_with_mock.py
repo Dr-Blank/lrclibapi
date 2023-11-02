@@ -1,3 +1,4 @@
+import os
 import warnings
 from unittest.mock import Mock
 
@@ -5,10 +6,20 @@ import pytest
 from requests import HTTPError, Response
 
 from lrclib.api import BASE_URL, ENDPOINTS, LrcLibAPI
-from lrclib.exceptions import (APIError, IncorrectPublishTokenError,
-                               NotFoundError, RateLimitError, ServerError)
-from lrclib.models import (CryptographicChallenge, Lyrics, LyricsMinimal,
-                           SearchResult)
+from lrclib.cryptographic_challenge_solver import CryptoChallengeSolver
+from lrclib.exceptions import (
+    APIError,
+    IncorrectPublishTokenError,
+    NotFoundError,
+    RateLimitError,
+    ServerError,
+)
+from lrclib.models import (
+    CryptographicChallenge,
+    Lyrics,
+    LyricsMinimal,
+    SearchResult,
+)
 
 
 @pytest.fixture(scope="module")
@@ -175,13 +186,18 @@ def test_publish_lyrics(api: LrcLibAPI) -> None:
     session_mock = Mock()
     session_mock.request.return_value.json.return_value = {"status": "success"}
 
-    # Mock the obtain_publish_token method of the LrcLibAPI instance
-    api_mock = Mock()
-    api_mock.obtain_publish_token.return_value = "test_publish_token"
+    # Mock the challenge
+    request_challenge = Mock()
+    simple_challenge = CryptographicChallenge("test_prefix", "0f")
+    solution = CryptoChallengeSolver.solve(
+        simple_challenge.prefix,
+        simple_challenge.target,
+        num_threads=os.cpu_count() or 1,
+    )
+    request_challenge.return_value = simple_challenge
 
-    # Set the session object and obtain_publish_token method of the LrcLibAPI instance to the mock objects
     api.session = session_mock
-    api._obtain_publish_token = api_mock.obtain_publish_token
+    api.request_challenge = request_challenge
 
     # Call the publish_lyrics method
     result = api.publish_lyrics(
@@ -193,14 +209,11 @@ def test_publish_lyrics(api: LrcLibAPI) -> None:
         synced_lyrics="test_synced_lyrics",
     )
 
-    # Check that the obtain_publish_token method was called
-    api_mock.obtain_publish_token.assert_called_once()
-
     # Check that the session's request method was called with the correct arguments
     session_mock.request.assert_called_once_with(
         "POST",
         BASE_URL + ENDPOINTS["publish"],
-        headers={"X-Publish-Token": "test_publish_token"},
+        headers={"X-Publish-Token": f"{simple_challenge.prefix}:{solution}"},
         json={
             "trackName": "test_track_name",
             "artistName": "test_artist_name",
