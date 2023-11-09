@@ -10,4 +10,4 @@ Welcome to lrclib's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   lrclib
