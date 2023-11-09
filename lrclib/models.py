@@ -7,10 +7,8 @@ from datetime import datetime
 from typing import Any, ClassVar, Dict, Generic, List, Optional, TypeVar
 
 APIKey = TypeVar("APIKey", bound=str)
-"""API key type as returned by the API"""
 
 ModelAttr = TypeVar("ModelAttr", bound=str)
-"""Model attribute type as used in the models"""
 
 KeyMapping = Dict[APIKey, ModelAttr]
 
@@ -20,13 +18,13 @@ ModelT = TypeVar("ModelT", bound="BaseModel")
 class BaseModel(Generic[ModelT]):
     """Base model"""
 
-    API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {}
+    _API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {}
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> ModelT:
         """Create a ModelT object from a dictionary"""
         kwargs = {}
-        for key, value in cls.API_TO_MODEL_MAPPINGS.items():
+        for key, value in cls._API_TO_MODEL_MAPPINGS.items():
             kwargs[value] = data.get(key)
         return cls(**kwargs)  # type: ignore
 
@@ -45,7 +43,7 @@ class LyricsMinimal(BaseModel["LyricsMinimal"]):
     plain_lyrics: Optional[str] = field(default=None, repr=False)
     synced_lyrics: Optional[str] = field(default=None, repr=False)
 
-    API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {
+    _API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {
         "id": "id",
         "name": "name",
         "trackName": "track_name",
@@ -60,7 +58,7 @@ class LyricsMinimal(BaseModel["LyricsMinimal"]):
 
 @dataclass
 class Lyrics(BaseModel["Lyrics"]):
-    """Lyrics object"""
+    """Lyrics object with full information"""
 
     id: int  # pylint: disable=invalid-name
     name: str
@@ -69,6 +67,7 @@ class Lyrics(BaseModel["Lyrics"]):
     album_name: str
     duration: int
     instrumental: bool
+    """ if the lyrics are instrumental """
     plain_lyrics: Optional[str] = field(default=None, repr=False)
     synced_lyrics: Optional[str] = field(default=None, repr=False)
     lang: Optional[str] = field(default=None, repr=False)
@@ -76,7 +75,7 @@ class Lyrics(BaseModel["Lyrics"]):
     spotify_id: Optional[str] = field(default=None, repr=False)
     release_date: Optional[datetime] = field(default=None, repr=False)
 
-    API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {
+    _API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {
         "id": "id",
         "name": "name",
         "trackName": "track_name",
@@ -104,13 +103,13 @@ class Lyrics(BaseModel["Lyrics"]):
 
 @dataclass
 class ErrorResponse(BaseModel["ErrorResponse"]):
-    """Error response"""
+    """Response sent when an error occurs on the server"""
 
     status_code: int
     error: str
     message: str
 
-    API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {
+    _API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {
         "statusCode": "status_code",
         "error": "error",
         "message": "message",
@@ -118,7 +117,7 @@ class ErrorResponse(BaseModel["ErrorResponse"]):
 
 
 class SearchResult(List[LyricsMinimal]):
-    """Search result"""
+    """list of LyricsMinimal objects"""
 
     def __init__(self, data: List[LyricsMinimal]) -> None:
         super().__init__(data)
@@ -139,7 +138,7 @@ class CryptographicChallenge(BaseModel["CryptographicChallenge"]):
     prefix: str
     target: str
 
-    API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {
+    _API_TO_MODEL_MAPPINGS: ClassVar[KeyMapping] = {
         "prefix": "prefix",
         "target": "target",
     }
