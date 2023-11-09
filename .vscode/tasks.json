@@ -62,6 +62,16 @@
         "kind": "build",
         "isDefault": false
       }
+    },
+    // build docs "sphinx-build . _build"
+    {
+      "label": "docs",
+      "type": "shell",
+      "command": "poetry run sphinx-build docs/ docs/_build",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
     }
   ]
 }

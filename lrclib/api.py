@@ -29,7 +29,31 @@ ENDPOINTS: Dict[str, str] = {
 
 
 class LrcLibAPI:
-    """API for lrclib"""
+    """
+    Create a new LrcLibAPI instance. You can optionally pass a custom \
+        base URL and a custom requests session.
+
+    .. note::
+        setting `user_agent` is not required, but it is recommended by LRCLIB.
+
+    Parameters
+    ----------
+    user_agent : str
+        User agent to use for the requests
+    base_url : str, optional
+        Base URL to use for the requests
+    session : requests.Session, optional
+        Requests session to use for the requests
+
+    Raises
+    ------
+    UserWarning
+        If user_agent is not set
+
+    Examples
+    --------
+    See the :doc:`examples/fetch_lyrics` section for usage examples.
+    """
 
     def __init__(
         self,
@@ -42,8 +66,8 @@ class LrcLibAPI:
 
         if not user_agent:
             warnings.warn(
-                "Missing user agent"
-                + "please set it with the `user_agent` argument",
+                "Missing user agent, please set it with the `user_agent`"
+                " argument",
                 UserWarning,
             )
         else:
@@ -82,20 +106,35 @@ class LrcLibAPI:
         cached: bool = False,
     ) -> Lyrics:
         """
-        Get lyrics from LRCLIB.
+        Get lyrics from LRCLIB by track name, artist name, album name and \
+            duration.
 
-        :param track_name: name of the track
-        :type track_name: str
-        :param artist_name: name of the artist
-        :type artist_name: str
-        :param album_name: name of the album
-        :type album_name: str
-        :param duration: duration of the track in seconds
-        :type duration: int
-        :param cached: set to True to get cached lyrics, defaults to False
-        :type cached: bool, optional
-        :return: a dictionary with response data
-        :rtype: Lyrics
+        .. note::
+            All parameters are required except `cached`.
+
+        Parameters
+        ----------
+        track_name : str
+            Track name
+        artist_name : str
+            Artist name
+        album_name : str
+            Album name
+        duration : int
+            Duration of the track in seconds
+        cached : bool, optional
+            Whether to get cached lyrics or not, defaults to False
+
+        Returns
+        -------
+        Lyrics
+
+        Raises
+        ------
+        NotFoundError
+            If no lyrics are found
+        APIError
+            If the request fails
         """
 
         endpoint = ENDPOINTS["get_cached" if cached else "get"]
@@ -112,10 +151,21 @@ class LrcLibAPI:
         """
         Get lyrics from LRCLIB by ID.
 
-        :param lrclib_id: ID of the lyrics
-        :type lrclib_id: str | int
-        :return: a dictionary with response data
-        :rtype: :class:`Lyrics`
+        Parameters
+        ----------
+        lrclib_id : str | int
+            ID of the lyrics
+
+        Returns
+        -------
+        Lyrics
+
+        Raises
+        ------
+        NotFoundError
+            If no lyrics are found
+        APIError
+            If the request fails
         """
         endpoint = ENDPOINTS["get_by_id"].format(id=lrclib_id)
         response = self._make_request("GET", endpoint)
@@ -129,18 +179,31 @@ class LrcLibAPI:
         album_name: "str | None" = None,
     ) -> SearchResult:
         """
-        Search lyrics from LRCLIB.
+        Search lyrics on LRCLIB by query, track name, artist name and/or \
+            album name.
 
-        :param query: query string, defaults to None
-        :type query: str | None, optional
-        :param track_name: defaults to None
-        :type track_name: str | None, optional
-        :param artist_name: defaults to None
-        :type artist_name: str | None, optional
-        :param album_name: defaults to None
-        :type album_name: str | None, optional
-        :return: a list of search results
-        :rtype: :class:`SearchResult`
+        .. note::
+            Either `query` or `track_name` is required.
+
+        Parameters
+        ----------
+        query : str, optional
+            Search query
+        track_name : str, optional
+            Track name
+        artist_name : str, optional
+            Artist name
+        album_name : str, optional
+            Album name
+
+        Returns
+        -------
+        SearchResult
+
+        Raises
+        ------
+        APIError
+            If the request fails
         """
         # either query or track_name is required
         if not query and not track_name:
@@ -171,7 +234,22 @@ class LrcLibAPI:
         The challenge's solution is a nonce, which can be used \
             to create a Publish Token for submitting lyrics to LRCLIB.
 
-        :return: :class:`CryptographicChallenge`
+        Returns
+        -------
+        CryptographicChallenge
+
+        See Also
+        --------
+        publish_lyrics : Submit lyrics to LRCLIB directly without \
+            using the `request_challenge` method
+
+        :obj:`~lrclib.cryptographic_challenge_solver` : Use one of the \
+            available solvers to solve the challenge
+
+        Raises
+        ------
+        APIError
+            If the request fails
         """
         endpoint = ENDPOINTS["request_challenge"]
         try:
@@ -184,8 +262,9 @@ class LrcLibAPI:
         """
         Obtain a Publish Token for submitting lyrics to LRCLIB.
 
-        :return: A Publish Token
-        :rtype: str
+        Returns
+        -------
+        publish_token : str
         """
 
         num_threads = os.cpu_count() or 1
@@ -206,27 +285,41 @@ class LrcLibAPI:
         publish_token: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
-        Publish lyrics to LRCLIB.
+        Publish lyrics to LRCLIB. All parameters are required.
 
-        :param track_name:
-        :type track_name: str
-        :param artist_name:
-        :type artist_name: str
-        :param album_name:
-        :type album_name: str
-        :param duration:
-        :type duration: int
-        :param plain_lyrics: , defaults to None
-        :type plain_lyrics: Optional[str], optional
-        :param synced_lyrics: , defaults to None
-        :type synced_lyrics: Optional[str], optional
-        :param publish_token: token for publishing lyrics, to obtain a new \
-            token, use the `obtain_publish_token` method, defaults to None
-        :type publish_token: Optional[str], optional
-        :raises IncorrectPublishTokenError: if the publish token is incorrect
-        :raises APIError: if the request fails
-        :return: a dictionary with response data
-        :rtype: Dict[str, Any]
+        .. note::
+            If no lyrics are provided, the track will be marked as \
+                instrumental.
+
+        Parameters
+        ----------
+        track_name : str
+            Track name
+        artist_name : str
+            Artist name
+        album_name : str
+            Album name
+        duration : int
+            Duration of the track in seconds
+        plain_lyrics : str, optional
+            Plain lyrics
+        synced_lyrics : str, optional
+            Synced lyrics
+        publish_token : str, optional
+            Publish token to use for publishing lyrics, if not provided, \
+                a new one will be generated
+
+        Returns
+        -------
+        Dict[str, Any]
+            Response from the API
+
+        Raises
+        ------
+        IncorrectPublishTokenError
+            If the publish token is incorrect
+        APIError
+            If the request fails
         """
         endpoint = ENDPOINTS["publish"]
 
