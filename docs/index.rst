@@ -11,3 +11,4 @@ Welcome to lrclib's documentation!
    :caption: Contents:
 
    lrclib
+   examples/index
