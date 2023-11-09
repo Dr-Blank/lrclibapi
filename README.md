@@ -15,6 +15,9 @@ Python Wrapper for [lrclib.net](https://lrclib.net/) api to get synced lyrics.
   <a href="https://codecov.io/gh/Dr-Blank/lrclibapi" > 
     <img src="https://codecov.io/gh/Dr-Blank/lrclibapi/graph/badge.svg"/> 
   </a>
+  <a href='https://lrclibapi.readthedocs.io/en/latest/?badge=latest'>
+    <img src='https://readthedocs.org/projects/lrclibapi/badge/?version=latest' alt='Documentation Status' />
+  </a>
   <a href="https://github.com/psf/black">
     <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
   </a>
