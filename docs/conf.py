@@ -6,13 +6,14 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-from importlib.metadata import version
+import importlib.metadata
 
 _python_project_name = "lrclibapi"
+version = importlib.metadata.version(_python_project_name)
 project = "LRCLib Python API"
 copyright = "2023, Dr-Blank"
 author = "Dr-Blank"
-release = version(_python_project_name)
+release = version
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
