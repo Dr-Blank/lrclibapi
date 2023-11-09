@@ -34,35 +34,4 @@ pip install lrclibapi
 
 ## Usage
 
-```python
-from lrclib import LrcLibAPI
-
-# Create an instance of the API
-api = LrcLibAPI(user_agent="my-app/0.0.1")
-
-# Get lyrics for a track
-lyrics = api.get_lyrics(
-    track_name="I Want to Live",
-    artist_name="Borislav Slavov",
-    album_name="Baldur's Gate 3 (Original Game Soundtrack)",
-    duration=233,
-)
-
-# Print the lyrics
-print(lyrics.synced_lyrics or lyrics.plain_lyrics)
-
-# Search for a lyrics
-results = api.search_lyrics(
-    track_name="I Want to Live",
-)
-
-# Print the results
-for result in results:
-    print(f"{result.artist_name} - {result.track_name} ({result.album_name})")
-
-# Get lyrics by ID
-lyrics = api.get_lyrics_by_id(lrclib_id=results[0].id)
-
-# Print the lyrics
-print(lyrics.synced_lyrics or lyrics.plain_lyrics)
-```
+See [Documentation](https://lrclibapi.readthedocs.io/en/latest/) for more details.
