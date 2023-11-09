@@ -3,7 +3,7 @@ name = "lrclibapi"
 packages = [
   { include = "lrclib", from = "." },
 ]
-version = "0.2.2"
+version = "0.3.1"
 description = "python wrapper for the lrclib.net api"
 authors = ["Dr-Blank <64108942+Dr-Blank@users.noreply.github.com>"]
 readme = "README.md"
