@@ -13,8 +13,11 @@ class Solution:
     """Class for storing the solution of a cryptographic challenge."""
 
     prefix: str
+    """The prefix string of the challenge."""
     target_hex: str
+    """The target hash in hexadecimal format."""
     nonce: Optional[int] = None
+    """The nonce that satisfies the target hash."""
 
     @property
     def is_solved(self) -> bool:
@@ -23,13 +26,7 @@ class Solution:
 
 
 def is_nonce_valid(prefix: str, nonce: "int | str", target: bytes) -> bool:
-    """Check if the given nonce satisfies the target hash.
-
-    :param prefix: The prefix string of the challenge.
-    :param nonce: The nonce to check.
-    :param target: The target hash in bytes format.
-    :return: True if the nonce satisfies the target, False otherwise.
-    """
+    """Check if the given nonce satisfies the target hash."""
     message = f"{prefix}{nonce}".encode()
     hash_value = hashlib.sha256(message).digest()
     return hash_value < target
@@ -42,14 +39,8 @@ def find_nonce(
     start: int = 0,
     step: int = 1,
 ) -> Solution:
-    """Find the nonce that satisfies the target hash.
-
-    :param prefix: The prefix string of the challenge.
-    :param target: The target hash in bytes format.
-    :param start: The starting nonce value.
-    :param step: The step size for incrementing the nonce.
-    :param solution: The solution object to store the valid nonce.
-    :return: The solution object.
+    """Find the nonce that satisfies the target hash such that the hash of \
+    the prefix concatenated with the nonce is less than the target hash.
     """
     if solution is None:
         solution = Solution(prefix, target.hex())
@@ -72,10 +63,19 @@ class CryptoChallengeSolver:
     def solve(prefix: str, target_hex: str, num_threads: int = 1):
         """Solve the cryptographic challenge.
 
-        :param prefix: The prefix string of the challenge.
-        :param target_hex: The target hash in hexadecimal format.
-        :param num_threads: The number of threads to use.
-        :return: The smallest nonce that satisfies the target.
+        Parameters
+        ----------
+        prefix : str
+            The prefix string of the challenge.
+        target_hex : str
+            The target hash in hexadecimal format.
+        num_threads : int
+            The number of threads to use for solving the challenge.
+
+        Returns
+        -------
+        nonce : str
+            The nonce that satisfies the target hash.
         """
         target = bytes.fromhex(target_hex)
         step = num_threads
