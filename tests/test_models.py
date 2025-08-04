@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-from lrclib.models import (
+from lrclibapi.models import (
     Lyrics,
     LyricsMinimal,
     ErrorResponse,

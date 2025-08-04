@@ -4,15 +4,15 @@ import warnings
 import pytest
 from requests import HTTPError, Response
 
-from lrclib.api import BASE_URL, ENDPOINTS, LrcLibAPI
-from lrclib.exceptions import (
+from lrclibapi.api import BASE_URL, ENDPOINTS, LrcLibAPI
+from lrclibapi.exceptions import (
     APIError,
     IncorrectPublishTokenError,
     NotFoundError,
     RateLimitError,
     ServerError,
 )
-from lrclib.models import (
+from lrclibapi.models import (
     Lyrics,
     LyricsMinimal,
     SearchResult,
