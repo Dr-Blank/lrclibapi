@@ -1,11 +1,10 @@
 """ A module that provides a class to solve a cryptographic challenge. """
 
 # https://github.com/tranxuanthang/lrcget/blob/main/src-tauri/src/lrclib/challenge_solver.rs
-
+from __future__ import annotations
 import hashlib
 import threading
 from dataclasses import dataclass
-from typing import List, Optional
 
 
 @dataclass
@@ -16,7 +15,7 @@ class Solution:
     """The prefix string of the challenge."""
     target_hex: str
     """The target hash in hexadecimal format."""
-    nonce: Optional[int] = None
+    nonce: int | None = None
     """The nonce that satisfies the target hash."""
 
     @property
@@ -25,7 +24,7 @@ class Solution:
         return self.nonce is not None
 
 
-def is_nonce_valid(prefix: str, nonce: "int | str", target: bytes) -> bool:
+def is_nonce_valid(prefix: str, nonce: int | str, target: bytes) -> bool:
     """Check if the given nonce satisfies the target hash."""
     message = f"{prefix}{nonce}".encode()
     hash_value = hashlib.sha256(message).digest()
@@ -35,7 +34,7 @@ def is_nonce_valid(prefix: str, nonce: "int | str", target: bytes) -> bool:
 def find_nonce(
     prefix: str,
     target: bytes,
-    solution: Optional[Solution] = None,
+    solution: Solution | None = None,
     start: int = 0,
     step: int = 1,
 ) -> Solution:
@@ -79,7 +78,7 @@ class CryptoChallengeSolver:
         """
         target = bytes.fromhex(target_hex)
         step = num_threads
-        threads: List[threading.Thread] = []
+        threads: list[threading.Thread] = []
         solution = Solution(prefix, target.hex())
 
         for i in range(num_threads):

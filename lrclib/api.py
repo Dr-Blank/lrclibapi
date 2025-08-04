@@ -1,9 +1,10 @@
 """ API for lrclib"""
 
+from __future__ import annotations
 import os
 import warnings
 from http import HTTPStatus
-from typing import Any, Dict, Optional
+from typing import Any
 
 import requests
 
@@ -18,7 +19,7 @@ from .exceptions import (
 from .models import CryptographicChallenge, Lyrics, SearchResult
 
 BASE_URL = "https://lrclib.net/api"
-ENDPOINTS: Dict[str, str] = {
+ENDPOINTS: dict[str, str] = {
     "get": "/get",
     "get_cached": "/get-cached",
     "get_by_id": "/get/{id}",
@@ -58,8 +59,8 @@ class LrcLibAPI:
     def __init__(
         self,
         user_agent: str,
-        base_url: "str | None" = None,
-        session: "requests.Session | None" = None,
+        base_url: str | None = None,
+        session: requests.Session | None = None,
     ):
         self._base_url = base_url or BASE_URL
         self.session = session or requests.Session()
@@ -147,7 +148,7 @@ class LrcLibAPI:
         response = self._make_request("GET", endpoint, params=params)
         return Lyrics.from_dict(response.json())
 
-    def get_lyrics_by_id(self, lrclib_id: "str | int") -> Lyrics:
+    def get_lyrics_by_id(self, lrclib_id: str | int) -> Lyrics:
         """
         Get lyrics from LRCLIB by ID.
 
@@ -173,10 +174,10 @@ class LrcLibAPI:
 
     def search_lyrics(
         self,
-        query: "str | None" = None,
-        track_name: "str | None" = None,
-        artist_name: "str | None" = None,
-        album_name: "str | None" = None,
+        query: str | None = None,
+        track_name: str | None = None,
+        artist_name: str | None = None,
+        album_name: str | None = None,
     ) -> SearchResult:
         """
         Search lyrics on LRCLIB by query, track name, artist name and/or \
@@ -280,10 +281,10 @@ class LrcLibAPI:
         artist_name: str,
         album_name: str,
         duration: int,
-        plain_lyrics: Optional[str] = None,
-        synced_lyrics: Optional[str] = None,
-        publish_token: Optional[str] = None,
-    ) -> Dict[str, Any]:
+        plain_lyrics: str | None = None,
+        synced_lyrics: str | None = None,
+        publish_token: str | None = None,
+    ) -> dict[str, Any]:
         """
         Publish lyrics to LRCLIB. All parameters are required.
 
