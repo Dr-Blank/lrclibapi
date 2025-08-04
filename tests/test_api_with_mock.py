@@ -5,16 +5,16 @@ from unittest.mock import Mock
 import pytest
 from requests import HTTPError, Response
 
-from lrclib.api import BASE_URL, ENDPOINTS, LrcLibAPI
-from lrclib.cryptographic_challenge_solver import CryptoChallengeSolver
-from lrclib.exceptions import (
+from lrclibapi.api import BASE_URL, ENDPOINTS, LrcLibAPI
+from lrclibapi.cryptographic_challenge_solver import CryptoChallengeSolver
+from lrclibapi.exceptions import (
     APIError,
     IncorrectPublishTokenError,
     NotFoundError,
     RateLimitError,
     ServerError,
 )
-from lrclib.models import (
+from lrclibapi.models import (
     CryptographicChallenge,
     Lyrics,
     LyricsMinimal,

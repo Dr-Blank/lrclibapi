@@ -1,7 +1,7 @@
 import random
 import string
 
-from lrclib.cryptographic_challenge_solver import (
+from lrclibapi.cryptographic_challenge_solver import (
     CryptoChallengeSolver,
     Solution,
     is_nonce_valid,
