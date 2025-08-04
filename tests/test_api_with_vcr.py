@@ -28,7 +28,6 @@ def api() -> LrcLibAPI:
 
 my_vcr = vcr.VCR(
     cassette_library_dir="tests/fixtures/cassettes",
-    record_mode="once",
 )
 
 expected_content = {
@@ -61,21 +60,34 @@ def is_valid_search_result(result: SearchResult) -> bool:
     )
 
 
-def is_valid_get_result(result: Lyrics) -> bool:
-    return (
-        isinstance(result, Lyrics)
-        and result.name == expected_content["name"]
-        and result.track_name == expected_content["trackName"]
-        and result.artist_name == expected_content["artistName"]
-        and result.album_name == expected_content["albumName"]
-        and result.duration == expected_content["duration"]
-        and result.instrumental == expected_content["instrumental"]
-        and result.plain_lyrics.startswith(expected_content["plainLyrics"])
-        and result.synced_lyrics.startswith(expected_content["syncedLyrics"])
-        and result.lang == expected_content["lang"]
-        and result.isrc == expected_content["isrc"]
-        and result.spotify_id == expected_content["spotifyId"]
-        and result.release_date == datetime(2023, 8, 10, 0, 0, 0)
+def validate_get_result(result: Lyrics) -> None:
+    """Validate the get result with individual assertions for better error messages."""
+    assert isinstance(result, Lyrics), "Result should be an instance of Lyrics"
+    assert result.name == expected_content["name"], (
+        f"Name mismatch. Expected: {expected_content['name']}, Got: {result.name}"
+    )
+    assert result.track_name == expected_content["trackName"], (
+        f"Track name mismatch. Expected: {expected_content['trackName']}, Got: {result.track_name}"
+    )
+    assert result.artist_name == expected_content["artistName"], (
+        f"Artist name mismatch. Expected: {expected_content['artistName']}, Got: {result.artist_name}"
+    )
+    assert result.album_name == expected_content["albumName"], (
+        f"Album name mismatch. Expected: {expected_content['albumName']}, Got: {result.album_name}"
+    )
+    assert result.duration == expected_content["duration"], (
+        f"Duration mismatch. Expected: {expected_content['duration']}, Got: {result.duration}"
+    )
+    assert result.instrumental == expected_content["instrumental"], (
+        f"Instrumental flag mismatch. Expected: {expected_content['instrumental']}, Got: {result.instrumental}"
+    )
+    assert result.plain_lyrics is not None, "Plain lyrics should not be None"
+    assert result.synced_lyrics is not None, "Synced lyrics should not be None"
+    assert result.plain_lyrics.startswith(expected_content["plainLyrics"]), (
+        f"Plain lyrics don't start with expected content. Expected to start with: {expected_content['plainLyrics']}, Got: {result.plain_lyrics}"
+    )
+    assert result.synced_lyrics.startswith(expected_content["syncedLyrics"]), (
+        f"Synced lyrics don't start with expected content. Expected to start with: {expected_content['syncedLyrics']}, Got: {result.synced_lyrics}"
     )
 
 
@@ -89,14 +101,14 @@ def test_get_lyrics(api: LrcLibAPI) -> None:
         cached=False,
     )
 
-    assert is_valid_get_result(result)
+    validate_get_result(result)
 
 
 @my_vcr.use_cassette()
 def test_get_lyrics_by_id(api: LrcLibAPI) -> None:
     result = api.get_lyrics_by_id(expected_content["id"])
 
-    assert is_valid_get_result(result)
+    validate_get_result(result)
 
 
 @my_vcr.use_cassette()

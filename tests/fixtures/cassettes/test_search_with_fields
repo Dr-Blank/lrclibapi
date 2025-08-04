@@ -14,94 +14,108 @@ interactions:
     uri: https://lrclib.net/api/search?track_name=I+Want+to+Live&artist_name=Borislav+Slavov
   response:
     body:
-      string: "[{\"id\":3396226,\"name\":\"I Want to Live\",\"trackName\":\"I Want
-        to Live\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur's Gate
-        3 (Original Game Soundtrack)\",\"duration\":233,\"instrumental\":false,\"plainLyrics\":\"I
-        feel your breath upon my neck\\nA soft caress as cold as death\\nI didn't
-        know you well back then\\nI blame it all on luck and vain\\nYour blood like
-        wine, I wanted in\\nOh darling, get me drunk and make me feel\\n\\nIt's not
-        my fault\\nI'm not to blame\\nThese ain't my sins\\nI broke my chains\\nThere's
-        more to do\\nAnd I still want to live\\n\\nI feel your breath, upon my neck\\nA
-        soft caress, as cold as death\\nI feel your heart-beat in my soul\\nOur futures
-        bound, our bodies know\\nYour blood like wine, I wanted in\\nOh darling get
-        me drunk, invite me in\\n\\nIt's not my fault\\nI'm not to blame\\nThes\u0435
-        ain't my sins\\nI broke my chains\\nThere's mor\u0435 to do\\nIf I can only
-        live\\n\\nI can't go yet\\nDon't let me die\\nI'll never stop\\nUntil I'm
-        done\\nBut just tonight\\nMaybe I'll rest in peace\\n\\nI feel your breath
-        upon my neck\\nA soft caress as cold as death (Cold as death)\\nI hear your
-        heart-beat in my soul\\nOur endings bound, our bodies know\\n\\nI can't go
-        yet\\nDon't let me die\\nI want to live\\nMy only one\\nThere's more to do,
-        if we can only live\\nThe clock won't stop and this is what we get\\n\",\"syncedLyrics\":\"[00:17.12]
-        I feel your breath upon my neck\\n[00:20.41] A soft caress as cold as death\\n[00:29.60]
-        I didn't know you well back then\\n[00:32.82] I blame it all on luck and vain\\n[00:41.37]
-        Your blood like wine, I wanted in\\n[00:44.62] Oh darling, get me drunk and
-        make me feel\\n[00:49.72] \\n[00:51.12] It's not my fault\\n[00:53.94] I'm
-        not to blame\\n[00:57.02] These ain't my sins\\n[01:00.15] I broke my chains\\n[01:03.10]
-        There's more to do\\n[01:04.54] And I still want to live\\n[01:08.42] \\n[01:13.22]
-        I feel your breath, upon my neck\\n[01:16.49] A soft caress, as cold as death\\n[01:25.67]
-        I feel your heart-beat in my soul\\n[01:29.07] Our futures bound, our bodies
-        know\\n[01:37.55] Your blood like wine, I wanted in\\n[01:40.70] Oh darling
-        get me drunk, invite me in\\n[01:45.82] \\n[01:47.14] It's not my fault\\n[01:50.17]
-        I'm not to blame\\n[01:53.20] Thes\u0435 ain't my sins\\n[01:56.28] I broke
-        my chains\\n[01:59.27] There's mor\u0435 to do\\n[02:00.69] If I can only
-        live\\n[02:04.47] \\n[02:08.77] I can't go yet\\n[02:11.75] Don't let me die\\n[02:14.95]
-        I'll never stop\\n[02:18.15] Until I'm done\\n[02:21.24] But just tonight\\n[02:23.79]
-        Maybe I'll rest in peace\\n[02:28.94] \\n[02:37.39] I feel your breath upon
-        my neck\\n[02:40.59] A soft caress as cold as death (Cold as death)\\n[02:49.80]
-        I hear your heart-beat in my soul\\n[02:53.04] Our endings bound, our bodies
-        know\\n[02:58.10] \\n[03:01.70] I can't go yet\\n[03:04.84] Don't let me die\\n[03:07.89]
-        I want to live\\n[03:10.99] My only one\\n[03:13.95] There's more to do, if
-        we can only live\\n[03:20.31] The clock won't stop and this is what we get\\n[03:25.72]
-        \"},{\"id\":3396227,\"name\":\"I Want to Live\",\"trackName\":\"I Want to
-        Live\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur\u2019s Gate
-        3: Original Soundtrack\",\"duration\":233,\"instrumental\":false,\"plainLyrics\":\"I
-        feel your breath upon my neck\\nA soft caress as cold as death\\nI didn't
-        know you well back then\\nI blame it all on luck and vain\\nYour blood like
-        wine, I wanted in\\nOh darling, get me drunk and make me feel\\n\\nIt's not
-        my fault\\nI'm not to blame\\nThese ain't my sins\\nI broke my chains\\nThere's
-        more to do\\nAnd I still want to live\\n\\nI feel your breath, upon my neck\\nA
-        soft caress, as cold as death\\nI feel your heart-beat in my soul\\nOur futures
-        bound, our bodies know\\nYour blood like wine, I wanted in\\nOh darling get
-        me drunk, invite me in\\n\\nIt's not my fault\\nI'm not to blame\\nThes\u0435
-        ain't my sins\\nI broke my chains\\nThere's mor\u0435 to do\\nIf I can only
-        live\\n\\nI can't go yet\\nDon't let me die\\nI'll never stop\\nUntil I'm
-        done\\nBut just tonight\\nMaybe I'll rest in peace\\n\\nI feel your breath
-        upon my neck\\nA soft caress as cold as death (Cold as death)\\nI hear your
-        heart-beat in my soul\\nOur endings bound, our bodies know\\n\\nI can't go
-        yet\\nDon't let me die\\nI want to live\\nMy only one\\nThere's more to do,
-        if we can only live\\nThe clock won't stop and this is what we get\",\"syncedLyrics\":null},{\"id\":3396229,\"name\":\"I
-        Want to Live - Classical Version\",\"trackName\":\"I Want to Live - Classical
-        Version\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur's Gate
-        3 (Original Game Soundtrack)\",\"duration\":240,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":3396230,\"name\":\"I
-        Want to Live (classical version)\",\"trackName\":\"I Want to Live (classical
-        version)\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur\u2019s
-        Gate 3: Original Soundtrack\",\"duration\":240,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":3396233,\"name\":\"I
-        Want to Live - Instrumental Version\",\"trackName\":\"I Want to Live - Instrumental
-        Version\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur's Gate
-        3 (Original Game Soundtrack)\",\"duration\":283,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":3396234,\"name\":\"I
-        Want to Live (instrumental version)\",\"trackName\":\"I Want to Live (instrumental
-        version)\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur\u2019s
-        Gate 3: Original Soundtrack\",\"duration\":283,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":3417688,\"name\":\"I
-        Want to Live (Classical Version)\",\"trackName\":\"I Want to Live (Classical
-        Version)\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur's Gate
-        3 (Original Game Soundtrack)\",\"duration\":240,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null},{\"id\":3417689,\"name\":\"I
-        Want to Live (Instrumental Version)\",\"trackName\":\"I Want to Live (Instrumental
-        Version)\",\"artistName\":\"Borislav Slavov\",\"albumName\":\"Baldur's Gate
-        3 (Original Game Soundtrack)\",\"duration\":283,\"instrumental\":false,\"plainLyrics\":null,\"syncedLyrics\":null}]"
+      string: !!binary |
+        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
+        TDnOfYvc3nnN4Sp8HeYnvqrAY4dLc1dLvsqy5rI0/fbd8NtBOh8c+64XjP2pLuaRwCJ+Fi+X6Qzz
+        inXFP0NB9tRcc8WHqneAVaWwufRwQMXlTO0Bz5XfrKUcbedpX9JWoN1kjdoVJ9DHJXUuRBp7oCUW
+        Yr8uxulYUvkRLaG0r5001+9rnrpt0b7q9jUr9d3Q0LNZ9wIBrKxygEp8hHkYq+2+Jbtvye5bUj+m
+        tfuWeG5Fe7A7XSDPj+y+JTmZwmSl3bVSK0UjPmBdM4W2+5YqUyrDZTteB7H7lmjzUrJeLfmo+5bc
+        aOx5uvnV3ukEEg+fOYiju3ff391+f/fu33e3f7q7/bu4e/fPu9v/3N3+Bf/1w927v97d/uvu9o93
+        t3+4u/3b3e3t3bt/fCQKtxud1Lk/vg/oWs2nyUuHHlgbqFq2LqqK+u6G7cpfN7k31+gNND5DYe8j
+        cfxWmKMGr+tx6sKtorw118hVjU0vrN2LhbtWuE0UMqOWaEhgNd1L7fCaPaTIaDc6zQV9IcVfefI3
+        Cg/yeS+pn+q0mVdUMJ4C6tQZNCdik/ua+JTvqgj4sNXcbnR6tJ/36oxuNzqlGXf4+Zoq+cMEu9Fp
+        /TW65Gz6FEG/ZkIuQx0vP6mNTq/+D0KZfOLmywAA
     headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      Content-Length:
-      - '5871'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       Date:
-      - Thu, 05 Oct 2023 07:48:16 GMT
+      - Mon, 04 Aug 2025 06:47:24 GMT
       Server:
-      - Caddy
-      - Caddy
-      Vary:
-      - Origin
+      - nginx/1.20.1
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      vary:
+      - origin, access-control-request-method, access-control-request-headers
     status:
       code: 200
       message: OK
