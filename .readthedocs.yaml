@@ -10,8 +10,8 @@ build:
     python: "3.13"
   jobs:
     post_install:
-      - pip install poetry
-      - VIRTUAL_ENV=$READTHEDOCS_VIRTUALENV_PATH poetry install --with docs
+      - pip install uv
+      - uv sync --active --group docs
 
 sphinx:
   configuration: docs/conf.py
