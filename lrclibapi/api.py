@@ -98,7 +98,7 @@ class LrcLibAPI:
             raise APIError(response) from exc
         return response
 
-    def get_lyrics(  # pylint: disable=too-many-arguments
+    def get_lyrics(  # pylint: disable=R0913, R0917
         self,
         track_name: str,
         artist_name: str,
@@ -275,7 +275,7 @@ class LrcLibAPI:
         )
         return f"{challenge.prefix}:{nonce}"
 
-    def publish_lyrics(  # pylint: disable=too-many-arguments
+    def publish_lyrics(  # pylint: disable=R0913, R0917
         self,
         track_name: str,
         artist_name: str,
