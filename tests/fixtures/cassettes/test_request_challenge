@@ -16,7 +16,7 @@ interactions:
     uri: https://lrclib.net/api/request-challenge
   response:
     body:
-      string: '{"prefix":"KGwzQZNgh8iL6zwksSSe9QdruULD5iIA","target":"000000DFAF286BCA1AF286BCA1AF286BCA1AF286BCA1AF286BCA1AF286BCA1AF"}'
+      string: '{"prefix":"Z9hOsajpjwJjqyajPyJBd3VQEhu4B617","target":"000000FF00000000000000000000000000000000000000000000000000000000"}'
     headers:
       Connection:
       - keep-alive
@@ -25,7 +25,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 04 Aug 2025 06:47:25 GMT
+      - Wed, 06 Aug 2025 07:04:42 GMT
       Server:
       - nginx/1.20.1
       access-control-allow-origin:
