@@ -50,7 +50,7 @@ jobs:
         run: uv sync
 
       - name: Run tests with coverage
-        run: uv run pytest --cov-report xml --cov=lrclib tests/
+        run: uv run pytest --cov-report xml --cov=lrclibapi tests/
       
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
