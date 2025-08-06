@@ -53,6 +53,7 @@ dev = [
 docs = [
     "sphinx-rtd-theme>=3.0.2,<4",
     "nbsphinx>=0.9.7,<0.10",
+    "ipython>=8.18.1",
 ]
 
 [tool.uv]
