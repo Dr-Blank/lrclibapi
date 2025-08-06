@@ -28,6 +28,7 @@ def api() -> LrcLibAPI:
 
 my_vcr = vcr.VCR(
     cassette_library_dir="tests/fixtures/cassettes",
+    decode_compressed_response=True,
 )
 
 expected_content = {
