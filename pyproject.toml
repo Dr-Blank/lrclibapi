@@ -50,7 +50,7 @@ tox = "^4.11.3"
 wrapt = "^1.15.0"
 dill = "^0.3.7"
 mypy = "^1.5.1"
-vcrpy = "^5.1.0"
+vcrpy = "^6.0.2"
 types-requests = "^2.31.0"
 
 [tool.poetry.group.docs.dependencies]
